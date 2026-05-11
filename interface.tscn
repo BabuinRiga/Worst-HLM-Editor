@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0dviuake46hs"]
+
+[ext_resource type="Theme" uid="uid://bh7jflrbpupf2" path="res://resources/themes/main.tres" id="1_kyn48"]
+[ext_resource type="PackedScene" uid="uid://i06n2hpssufg" path="res://scenes/interface/top_bar.tscn" id="2_kyn48"]
+
+[node name="Interface" type="Control" unique_id=836904121]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kyn48")
+
+[node name="TopBar" parent="." unique_id=301989875 instance=ExtResource("2_kyn48")]
+layout_mode = 1
+grow_horizontal = 1

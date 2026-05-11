@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c7k6c3x6jyi4"]
+
+[ext_resource type="Script" uid="uid://clhqwp0aya3ga" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c0dviuake46hs" path="res://interface.tscn" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://c3oqcjake8l27" path="res://resources/shaders/background.gdshader" id="2_0xm2m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("2_0xm2m")
+shader_parameter/color_a = Color(0.5568628, 0, 0.5372549, 1)
+shader_parameter/color_b = Color(0.2, 0.69411767, 0.69411767, 1)
+shader_parameter/speed = 0.50000002049012
+shader_parameter/gradient_direction = 1.0
+
+[node name="Main" type="Node2D" unique_id=1248902654]
+script = ExtResource("1_h2yge")
+
+[node name="BG" type="CanvasLayer" parent="." unique_id=219335789]
+
+[node name="Background" type="ColorRect" parent="BG" unique_id=1090180457]
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=1300488519]
+
+[node name="Interface" parent="Interface" unique_id=836904121 instance=ExtResource("1_ig7tw")]
