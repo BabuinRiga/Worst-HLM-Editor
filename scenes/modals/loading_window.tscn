@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://y20ajepcqddh"]
+
+[ext_resource type="PackedScene" uid="uid://1rppebwy16bf" path="res://scenes/modals/modal_window.tscn" id="1_oi2y5"]
+[ext_resource type="Script" uid="uid://c34equikg5rdf" path="res://scenes/modals/loading_window.gd" id="2_k437n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5frp"]
+bg_color = Color(0, 0, 0, 0.7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5bgr"]
+bg_color = Color(0.099985994, 0.099985994, 0.09998598, 1)
+
+[node name="LoadingWindow" unique_id=1170968940 instance=ExtResource("1_oi2y5")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_b5frp")
+script = ExtResource("2_k437n")
+
+[node name="Panel" parent="." index="0" unique_id=1330653976]
+custom_minimum_size = Vector2(400, 100)
+theme_override_styles/panel = SubResource("StyleBoxFlat_a5bgr")
+
+[node name="Label" parent="Panel/VPanel/Title" parent_id_path=PackedInt32Array(399364739) index="0" unique_id=999755027]
+text = "LOADING"
+
+[node name="Content" parent="Panel/VPanel" parent_id_path=PackedInt32Array(1186534741) index="1" unique_id=998380618]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Panel/VPanel/Content" index="0" unique_id=291304923]
+layout_mode = 2
+
+[node name="HBoxLabels" type="HBoxContainer" parent="Panel/VPanel/Content/VBox" index="0" unique_id=1684392668]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="LabelData" type="Label" parent="Panel/VPanel/Content/VBox/HBoxLabels" index="0" unique_id=1813315951]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "LOADING"
+
+[node name="LabelCount" type="Label" parent="Panel/VPanel/Content/VBox/HBoxLabels" index="1" unique_id=534684085]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "COUNT"
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VPanel/Content/VBox" index="1" unique_id=1622343493]
+custom_minimum_size = Vector2(400, 27)
+layout_mode = 2
+show_percentage = false
+
+[node name="MarginPanels" parent="Panel/VPanel" parent_id_path=PackedInt32Array(1186534741) index="2" unique_id=1079869583]
+visible = false

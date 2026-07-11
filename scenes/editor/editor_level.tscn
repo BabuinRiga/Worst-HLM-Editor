@@ -1,0 +1,55 @@
+[gd_scene format=4 uid="uid://cd35wahbr6gkl"]
+
+[ext_resource type="Script" uid="uid://clmbgp3ngw611" path="res://scenes/editor/editor_level.gd" id="1_kepkq"]
+[ext_resource type="Script" uid="uid://c3oxs4d3xbbd" path="res://scenes/editor/grid_render.gd" id="1_uswj2"]
+[ext_resource type="Script" uid="uid://b3x0l5uwoagkh" path="res://scenes/editor/cursor.gd" id="2_8hjhx"]
+[ext_resource type="Script" uid="uid://cq5265mjlcqmg" path="res://scenes/editor/camera_2d.gd" id="2_a8a6d"]
+[ext_resource type="Script" uid="uid://wrs3vh781jra" path="res://scenes/editor/border_overlay.gd" id="2_ioedq"]
+[ext_resource type="Shader" uid="uid://c14dsuw07yotn" path="res://resources/shaders/rain/rain.gdshader" id="6_m30ww"]
+[ext_resource type="Shader" uid="uid://ca0ulvf8h4fe7" path="res://resources/shaders/rain/rain_hit.gdshader" id="6_xb1qm"]
+[ext_resource type="Script" uid="uid://bs4i0nuoli70a" path="res://scenes/editor/rain.gd" id="8_xb1qm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mw3ns"]
+shader = ExtResource("6_xb1qm")
+shader_parameter/num_frames = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xb1qm"]
+shader = ExtResource("6_m30ww")
+shader_parameter/camera_pos = Vector2(500, 500)
+shader_parameter/camera_size = Vector2(1000, 1000)
+shader_parameter/camera_half_size_offset = Vector2(500, 500)
+shader_parameter/wind_velocity = Vector2(0, 0)
+shader_parameter/drop_length = 2.0
+shader_parameter/z_speed = 100.0
+shader_parameter/line_width = 1.0
+shader_parameter/splash_speed = 4.0
+shader_parameter/splash_size = Vector2(16, 16)
+shader_parameter/dead_zone_radius = 100.0
+shader_parameter/exclusion_rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/exclusion_count = 0
+
+[node name="EditorLevel" type="Node2D" unique_id=649096]
+script = ExtResource("1_kepkq")
+
+[node name="BorderOverlay" type="Node2D" parent="." unique_id=1214956660]
+z_index = 200
+script = ExtResource("2_ioedq")
+metadata/_custom_type_script = "uid://wrs3vh781jra"
+
+[node name="GridRender" type="Node2D" parent="." unique_id=197530932]
+script = ExtResource("1_uswj2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=47552726]
+script = ExtResource("2_a8a6d")
+
+[node name="Rain" type="GPUParticles2D" parent="Camera2D" unique_id=892916303]
+visible = false
+material = SubResource("ShaderMaterial_mw3ns")
+amount = 250
+fixed_fps = 0
+process_material = SubResource("ShaderMaterial_xb1qm")
+script = ExtResource("8_xb1qm")
+
+[node name="Cursor" type="Node2D" parent="." unique_id=1520917741]
+z_index = 1000
+script = ExtResource("2_8hjhx")

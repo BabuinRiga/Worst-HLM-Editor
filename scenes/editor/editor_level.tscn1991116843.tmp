@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cd35wahbr6gkl"]
+
+[ext_resource type="Script" uid="uid://c3oxs4d3xbbd" path="res://scenes/editor/grid_render.gd" id="1_uswj2"]
+[ext_resource type="Script" uid="uid://cq5265mjlcqmg" path="res://scenes/editor/camera_2d.gd" id="2_a8a6d"]
+
+[node name="EditorLevel" type="Node2D" unique_id=649096]
+
+[node name="GridRender" type="Node2D" parent="." unique_id=197530932]
+script = ExtResource("1_uswj2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=47552726]
+script = ExtResource("2_a8a6d")

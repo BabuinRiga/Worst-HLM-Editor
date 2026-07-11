@@ -1,0 +1,297 @@
+[
+	{
+		"name": "MAFIA",
+		"types": {
+			"UNARMED": [
+				[877, 1453, "STATIC"], [876, 1453, "LOOK_AROUND"], [2221, 3813, "CRAWL"]
+			],
+
+			"M_PATROL": [
+				[938, 66, "CLUB"], [938, 67, "BAT"], [938, 73, "KNIFE"], [938, 74, "PIPE"]
+			],
+			"M_RANDOM": [
+				[875, 66, "CLUB"], [875, 67, "BAT"], [875, 73, "KNIFE"], [875, 74, "PIPE"]
+			],
+
+			"STATIC": [
+				[877, 68, "D_BARREL"], [877, 69, "SHOTGUN"], [877, 70, "M16"], [877, 75, "SILENCER"], [877, 1500, "KALASHNIKOV"]
+			],
+			"PATROL": [
+				[878, 68, "D_BARREL"], [878, 69, "SHOTGUN"], [878, 70, "M16"], [878, 75, "SILENCER"], [878, 1500, "KALASHNIKOV"]
+			],
+			"RANDOM": [
+				[876, 68, "D_BARREL"], [876, 69, "SHOTGUN"], [876, 70, "M16"], [876, 75, "SILENCER"], [876, 1500, "KALASHNIKOV"]
+			],
+
+			"IDLE": [
+				[2408, 2078, "PIPE"], [2407, 2077, "SMOKE"], [2407, 2081, "PHONE"], [916, 1521, "SILENCER"], [2407, 2089, "SIT"]
+			],
+			"FAT": [
+				[1464, 2596]
+			],
+			"DOG": [
+				[1064, 1766]
+			]
+		}
+	},
+	{
+		"name": "GANG",
+		"types": {
+			"UNARMED": [
+				[186, 207, "STATIC"], [183, 207, "LOOK_AROUND"], [2221, 3812, "CRAWL"]
+			],
+
+			"M_PATROL": [
+				[941, 202, "BAT"], [941, 203, "CHAIN"], [941, 204, "KNIFE"], [941, 205, "PIPE"]
+			],
+			"M_RANDOM": [
+				[170, 202, "BAT"], [170, 203, "CHAIN"], [170, 204, "KNIFE"], [170, 205, "PIPE"]
+			],
+
+			"STATIC": [
+				[186, 201, "PISTOL"], [186, 206, "SHOTGUN"], [186, 208, "UZI"]
+			],
+			"PATROL": [
+				[184, 201, "PISTOL"], [184, 206, "SHOTGUN"], [184, 208, "UZI"]
+			],
+			"RANDOM": [
+				[183, 201, "PISTOL"], [183, 206, "SHOTGUN"], [183, 208, "UZI"]
+			],
+
+			"IDLE": [
+				[229, 195, "PIPE"], [230, 211, "KNIFE"], [231, 210, "SMOKE"], [1144, 1927, "MONEY"], [230, 1303, "FRIDGE"]
+			],
+			"DODGER": [
+				[2286, 3973, "DODGER"]
+			],
+			"FAT": [
+				[1289, 2194]
+			],
+			"DOG": [
+				[1064, 1766]
+			]
+		}
+	},
+	{
+		"name": "COLUMBIANS",
+		"types": {
+			"UNARMED": [
+				[1357, 2295, "STATIC"], [1356, 2295, "LOOK_AROUND"], [2221, 3819, "CRAWL"]
+			],
+
+			"M_PATROL": [
+				[1355, 2292, "PIPE"], [1355, 2289, "KNIFE"], [1355, 2290, "MACHETE"]
+			],
+			"M_RANDOM": [
+				[1354, 2292, "PIPE"], [1354, 2289, "KNIFE"], [1354, 2290, "MACHETE"]
+			],
+
+			"STATIC": [
+				[1357, 2294, "SILENCE"], [1357, 2293, "SHOTGUN"], [1357, 2288, "FAMAE"], [1357, 2291, "MENDOZA"]
+			],
+			"PATROL": [
+				[1358, 2294, "SILENCE"], [1358, 2293, "SHOTGUN"], [1358, 2288, "FAMAE"], [1358, 2291, "MENDOZA"]
+			],
+			"RANDOM": [
+				[1356, 2294, "SILENCE"], [1356, 2293, "SHOTGUN"], [1356, 2288, "FAMAE"], [1356, 2291, "MENDOZA"]
+			],
+
+			"IDLE": [
+				[1359, 2324, "PIPE"]
+			],
+			"DODGER": [
+				[1886, 3287]
+			],
+			"HIDE": [
+				[1737, 3009]
+			],
+			"FAT": [
+				[1464, 2596]
+			],
+			"DOG": [
+				[1064, 1766]
+			]
+		}
+	},
+	{
+		"name": "POLICE",
+		"types": {
+			"UNARMED": [
+				[934, 1550, "STATIC"], [932, 1550, "LOOK_AROUND"], [2221, 3817, "CRAWL"]
+			],
+
+			"M_PATROL": [
+				[939, 1553, "STICK"]
+			],
+			"M_RANDOM": [
+				[931, 1553, "STICK"]
+			],
+
+			"STATIC": [
+				[934, 1551, "PISTOL"], [934, 1558, "SHOTGUN"]
+			],
+			"PATROL": [
+				[933, 1551, "PISTOL"], [933, 1558, "SHOTGUN"]
+			],
+			"RANDOM": [
+				[932, 1551, "PISTOL"], [932, 1558, "SHOTGUN"]
+			],
+
+			"IDLE": [
+				[2409, 1336, "TALK"]
+			],
+			"FAT": [
+				[937, 1570]
+			],
+			"DOG": [
+				[1064, 1766]
+			]
+		}
+	},
+	{
+		"name": "SOLDIERS",
+		"types": {
+			"UNARMED": [
+				[697, 1116, "STATIC"], [674, 1116, "LOOK_AROUND"], [2221, 3815, "CRAWL"]
+			],
+
+			"M_PATROL": [
+				[2396, 1118, "MACHETE"]
+			],
+			"M_RANDOM": [
+				[672, 1118, "MACHETE"]
+			],
+
+			"STATIC": [
+				[697, 1117, "KALASHNIKOV"]
+			],
+			"PATROL": [
+				[696, 1117, "KALASHNIKOV"]
+			],
+			"RANDOM": [
+				[674, 1117, "KALASHNIKOV"]
+			],
+
+			"IDLE": [
+				[706, 1178, "PONCHO"], [708, 1179, "RAIN"]
+			],
+			"DODGER": [
+				[2287, 3977]
+			],
+			"HIDE": [
+				[1460, 2589]
+			],
+			"FAT": [
+				[698, 1163, "MELEE"], [704, 1161, "GUN"]
+			],
+			"DOG": [
+				[1064, 1766]
+			]
+		}
+	},
+	{
+		"name": "GUARDS",
+		"types": {
+			"UNARMED": [
+				[1533, 2682, "STATIC"], [1532, 2682, "LOOK_AROUND"], [2221, 3822, "CRAWL"]
+			],
+
+			"M_PATROL": [
+				[1531, 2681, "STICK"]
+			],
+			"M_RANDOM": [
+				[1530, 2681, "STICK"]
+			],
+
+			"STATIC": [
+				[1533, 2679, "MAGNUM"], [1533, 2680, "SHOTGUN"]
+			],
+			"PATROL": [
+				[1534, 2679, "MAGNUM"], [1534, 2680, "SHOTGUN"]
+			],
+			"RANDOM": [
+				[1532, 2679, "MAGNUM"], [1532, 2680, "SHOTGUN"]
+			],
+
+			"IDLE": [
+				[2168, 3650, "STICK"]
+			],
+			"DOG": [
+				[1064, 1766]
+			]
+		}
+	},
+	{
+		"name": "PRISONERS",
+		"types": {
+			"UNARMED": [
+				[2112, 3579, "STATIC"], [2111, 3579, "LOOK_AROUND"], [2221, 3823, "CRAWL"]
+			],
+			
+			"M_STATIC": [
+				[2146, 3575, "BIG_PIPE"], [2146, 3577, "SHARD"], [2146, 3578, "STICK"], [2146, 3632, "BRUSH"]
+			],
+			"M_PATROL": [
+				[2110, 3575, "BIG_PIPE"], [2110, 3577, "SHARD"], [2110, 3578, "STICK"], [2110, 3632, "BRUSH"]
+			],
+			"M_RANDOM": [
+				[2109, 3575, "BIG_PIPE"], [2109, 3577, "SHARD"], [2109, 3578, "STICK"], [2109, 3632, "BRUSH"]
+			],
+
+			"STATIC": [
+				[2112, 3576, "MAGNUM"], [2112, 3674, "SHOTGUN"]
+			],
+			"PATROL": [
+				[2113, 3576, "MAGNUM"], [2113, 3674, "SHOTGUN"]
+			],
+			"RANDOM": [
+				[2111, 3576, "MAGNUM"], [2111, 3674, "SHOTGUN"]
+			],
+
+			"IDLE": [
+				[2167, 3733, "GUN"]
+			],
+			"PSYCHO": [
+				[2145, 3677], [2145, 3678], [2145, 3679]
+			],
+			"FAT": [
+				[2148, 3680]
+			]
+		}
+	},
+	{
+		"name": "LSD_MAFIA",
+		"types": {
+			"UNARMED": [
+				[877, 3218, "STATIC"], [876, 3218, "LOOK_AROUND"]
+			],
+
+			"M_PATROL": [
+				[938, 3219, "CLUB"]
+			],
+			"M_RANDOM": [
+				[875, 3219, "CLUB"]
+			],
+
+			"STATIC": [
+				[877, 3223, "SHOTGUN"], [877, 3217, "UZI"], [877, 3231, "KALASHNIKOV"]
+			],
+			"PATROL": [
+				[878, 3223, "SHOTGUN"], [878, 3217, "UZI"], [878, 3231, "KALASHNIKOV"]
+			],
+			"RANDOM": [
+				[876, 3223, "SHOTGUN"], [876, 3217, "UZI"], [876, 3231, "KALASHNIKOV"]
+			],
+
+			"IDLE": [
+				[1877, 3261]
+			],
+			"FAT": [
+				[1854, 3226]
+			],
+			"DOG": [
+				[1064, 1766], [1064, 3234]
+			]
+		}
+	}
+]

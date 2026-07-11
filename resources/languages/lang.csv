@@ -2,8 +2,164 @@ KEY,en,ru
 LANG_NAME,English,Русский
 LANG,Language,Язык
 FILE,File,Файл
-EDIT,Edit,Редактор
+EDIT,Edit,Изменить
 VIEW,View,Вид
 SETTINGS,Settings,Настройки
 QUIT,Exit,Выйти
 FULLSCREEN,Fullscreen mode,Полноэкранный режим
+FLOOR,Floor,Этаж
+OBJECT_SELECT,Selected objects,Выбранные объекты
+SELECTED_C, Selected: %d, Выбрано: %d
+LEVEL,Level,Уровень
+CREATE_NEW,Create new,Создать новый
+LOAD,Load,Загрузить
+SAVE,Save,Сохранить
+OP_FILE_DIR,Open file directory,Открыть папку уровня
+UNDO,Undo,Отменить
+REDO,Redo,Повторить
+GRID,Grid,Сетка
+SHOW_OUTLINE,Show outline,Показывать обводку
+SHOW_PIVOT,Show pivot,Показывать ось
+WALL_HINT,Wall hint,Подсказка стен
+RAIN,Rain,Дождь
+LEVEL_BORDER,Boundaries,Границы уровня
+HM2PATH,HM2 Path,Путь к HM2
+WHY_HM2PATH,"To parse sprites, objects, and other data, you need to specify the path to Hotline Miami 2 so the program can access the .wad files.","Чтобы обработать спрайты, объекты и другие данные, укажите путь к Hotline Miami 2, чтобы программа могла получить доступ к файлам .wad"
+APPLY,Apply,Принять
+CANCEL,Cancel,Отмена
+LOAD_FILE,Load file,Загрузить файл
+CUTSCENE,Cutscene,Катсцены
+BUILD,Build,Тайлы
+OBJECTS,Objects,Объекты
+ENEMY,Enemy,Враги
+MISC,Misc,Прочее
+MAIN,Main,Основная
+FILES,Files,Файлы
+FRAMES,Frames,Кадры
+NPC,NPC,NPC
+NOT_SAVED,Unsaved changes,Несохраненные изменения
+PLAYER,Player,Игрок
+CAR,Car,Машина
+FL_TRANS,Transition,Переход
+EL_TRANS,Elevator,Лифт
+DARKNESS,Darkness,Темнота
+DAYLIGHT,Daylight,Рассвет
+SUNSET,Sunset,Закат
+CHARACTER,Character,Персонаж
+BOUNDARIES,Boundaries,Границы
+CHAR_INFO,"When changing the player, make sure to set the correct character value.
+Otherwise, the level may fail to start or work incorrectly.
+[b]Please take this seriously![/b]","При изменении игрока обязательно устанавливайте соответствующее значение персонажа.
+В противном случае уровень может не запуститься или работать некорректно.
+[b]Пожалуйста, отнеситесь к этому серьезно![/b]"
+MASK_INFO,"The masks below affect the abilities of the player character Jacket. However, some of them may also affect other characters. Masks marked with the ""★"" symbol apply to all characters.","Маски ниже влияют на способности игрока Jacket. Однако некоторые из них также могут влиять и на других персонажей. Маски, отмеченные символом ""★"", действуют на всех персонажей."
+TOP,Top,Верх
+LEFT,Left,Лево
+BOTTOM,Bottom,Низ
+RIGHT,Right,Право
+TITLE,Title,Название
+AUTHOR,Author,Автор
+S_RANK,S Rank,S Ранг
+L_COVER,Level cover,Обложка уровня
+COVER_INFO,Cover must be 34x57,Обложка должна быть 34х57
+BG,Background,Фон
+INFO_BG,"This parameter has no effect if the level is part of a campaign.
+Instead, use a separate background object in combination with
+the ""Void Fix for Campaigns"" patch (HLMWADEditor)","Данный параметр не влияет на уровень, если он является частью кампании.
+Вместо этого используйте отдельный объект фона в сочетании с
+патчем ""Void Fix for Campaigns"" (HLMWADEditor)"
+CUSTOM,Custom,Собственный
+MUSIC,Music,Музыка
+HOUR,Hour,Часы
+MINUTE,Minute,Минуты
+DAY,Day,День
+MONTH,Month,Месяц
+YEAR,Year,Год
+CITY,City,Город
+STATE,State,Штат
+ADDRESS,Address,Адресс
+TILES,Tiles,Тайлы
+CORNERS,Corners,Углы
+MERGE_TILES,Merge tiles,Заменять тайлы
+MERGE_TILES_INFO,"Placing a tile on an occupied space will replace the existing tiles.
+Hold ALT to quickly toggle modes.","При установке тайла на занятую клетку старые тайлы будут удалены.
+Зажмите ALT для быстрого переключения режимов."
+ENTRY,Entry,Вход
+BARRIER,Barrier,Барьер
+WALLS,Walls,Стены
+DOORS,Doors,Двери
+LOCKED,Locked,Закрыто
+SEARCH,Search,Поиск
+MAFIA,Mafia,Мафия
+GANG,Gang,Банда
+COLUMBIANS,Columbians,Колумбийцы
+POLICE,Police,Полиция
+SOLDIERS,Soldiers,Солдаты
+GUARDS,Guards,Охранники
+PRISONERS,Prisoners,Заключенные
+LSD_MAFIA,Mafia (LSD),Мафия (LSD)
+UNARMED,Unarmed,Безоружный
+STATIC,Static,Стоит
+LOOK_AROUND,Look around,Осматривается
+CRAWL,Crawl,Ползет
+M_STATIC,M. Static,Б. Стоит
+M_PATROL,M. Patrol,Б. Патруль
+M_RANDOM,M. Random,Б. Разнобой
+PATROL,Patrol,Патруль
+RANDOM,Random,Разнобой
+IDLE,Idle,Ожидает
+FAT,Fat,Толстый
+DOG,Dog,Собака
+DODGER,Dodger,Ловкач
+HIDE,Hide,Прячется
+PSYCHO,Psycho,Психопат
+CLUB,Club,Клюшка
+BAT,Bat,Бита
+KNIFE,Knife,Нож
+PIPE,Pipe,Труба
+D_BARREL,Double barrel,Двухстволка
+SHOTGUN,Shotgun,Дробовик
+SILENCER,Silencer,Глушитель
+KALASHNIKOV,Kalashnikov,Калашников
+SMOKE,Smoke,Курит
+PHONE,Phone,Звонит
+SIT,Sit,Сидит
+CHAIN,Chain,Цепь
+PISTOL,Pistol,Пистолет
+UZI,Uzi,Узи
+MONEY,Money,Деньги
+FRIDGE,Fridge,Холодильник
+MACHETE,Machete,Мачете
+FAMAE,Famae,Фамае
+MENDOZA,Mendoza,Мендоза
+STICK,Stick,Дубинка
+TALK,Talk,Говорит
+PONCHO,Poncho,Камуфляж
+MELEE,Melee,Холодное оружие
+GUN,Gun,Огнестрельное оружие
+MAGNUM,Magnum,Магнум
+BIG_PIPE,Big pipe,Большая труба
+SHARD,Shard,Осколок
+BRUSH,Brush,Щетка
+WEAPONS,Weapons,Оружия
+HAMER,Hammer,Молоток
+FLYKNIFE,Butterfly knife,Нож бабочка
+NAIL,Nail gun,Гвоздемет
+BOTTLE,Bottle,Бутылка
+TASER,Taser,Электрошокер
+SKATEBORD,Skatebord,Скейтборд
+KATANA,Katana,Катана
+AXE,Axe,Топор
+ACID,Acid,Кислота
+B_BOTTLE,Broken bottle,Сломанная бутылка
+DRILL,Drill,Дрель
+PAN_F,Pan (Full),Сковорода (Полная)
+PAN_E,Pan (Empty),Сковорода (Пустая)
+S_UZI,Silenced uzi,Узи с глушителем
+B_KNIFE,Biker knife,Нож байкера
+AMMO_BOX,Ammo box,Боеприпасы
+SELECT,Select,Выбрать
+LEVEL_DOESNT_EXIST,Level doesnt exist,Уровень несуществует
+SAVE_DOESNT_EXIST_CONFIRM,Are you sure you want to create a new level?,Вы действительно хотите создать новый уровень?
+YES,Yes,Да
+NO,No,Нет

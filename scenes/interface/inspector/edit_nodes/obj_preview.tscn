@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ct1y0rntv0ku4"]
+
+[ext_resource type="Texture2D" uid="uid://d3n5tb8d3ytgg" path="res://resources/textures/default.png" id="1_6tdoy"]
+[ext_resource type="StyleBox" uid="uid://2jcv36r8vvw0" path="res://resources/themes/panels_header.tres" id="1_fln4d"]
+[ext_resource type="Script" uid="uid://byek2uotr57af" path="res://scenes/interface/inspector/edit_nodes/obj_preview.gd" id="2_y3jor"]
+
+[node name="ObjPreview" type="PanelContainer" unique_id=1004120752]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_fln4d")
+script = ExtResource("2_y3jor")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1583103300]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=205860660]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1500554536]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("1_6tdoy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1238085145]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Size" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=343935922]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6862745)
+text = "SIZE"
+horizontal_alignment = 2
+autowrap_mode = 1
+
+[node name="Sprite" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1317517475]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6862745)
+text = "SPRITE"
+horizontal_alignment = 2
+autowrap_mode = 1
+
+[node name="Object" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=533902374]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6862745)
+text = "OBJECT"
+horizontal_alignment = 2
+autowrap_mode = 1

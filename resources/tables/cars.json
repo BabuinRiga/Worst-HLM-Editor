@@ -1,0 +1,58 @@
+[
+	{
+		"object_id": 236,
+		"sprite_id": 392
+	},
+	{
+		"object_id": 764,
+		"sprite_id": 1258
+	},
+	{
+		"object_id": 870,
+		"sprite_id": 1432
+	},
+	{
+		"object_id": 1049,
+		"sprite_id": 1731
+	},
+	{
+		"object_id": 1341,
+		"sprite_id": 2225
+	},
+	{
+		"object_id": 1366,
+		"sprite_id": 2439
+	},
+	{
+		"object_id": 2040,
+		"sprite_id": 3485
+	},
+	{
+		"object_id": 2174,
+		"sprite_id": 3737
+	},
+	{
+		"object_id": 2267,
+		"sprite_id": 3935
+	},
+	{
+		"object_id": 2284,
+		"sprite_id": 3951
+	},
+	{
+		"object_id": 2345,
+		"sprite_id": 4154
+	},
+	{
+		"object_id": 2347,
+		"sprite_id": 4094
+	},
+	{
+		"object_id": 2349,
+		"sprite_id": 3354
+	},
+	{
+		"object_id": 2394,
+		"sprite_id": 4271
+	}
+]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://4ajnig573320"]
+
+[ext_resource type="PackedScene" uid="uid://1rppebwy16bf" path="res://scenes/modals/modal_window.tscn" id="1_ifvyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anena"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.29411766)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="UpdateAvaible" unique_id=1170968940 instance=ExtResource("1_ifvyg")]
+
+[node name="Panel" parent="." index="0" unique_id=1330653976]
+custom_minimum_size = Vector2(400, 500)
+
+[node name="Label" parent="Panel/VPanel/Title" parent_id_path=PackedInt32Array(399364739) index="0" unique_id=999755027]
+text = "NEW_UPD_AV"
+
+[node name="Update" type="Button" parent="Panel/VPanel/MarginPanels/Panels" parent_id_path=PackedInt32Array(1023914106) index="0" unique_id=2055336475]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_anena")
+text = "UPDATE"

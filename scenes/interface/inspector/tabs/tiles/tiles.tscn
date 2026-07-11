@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://borkntwv4st7e"]
+
+[ext_resource type="StyleBox" uid="uid://bohcdcd6n6o2o" path="res://resources/themes/panels_light.tres" id="1_1t57n"]
+[ext_resource type="Script" uid="uid://csyolwa2j51x2" path="res://scenes/interface/inspector/tabs/tiles/tiles.gd" id="2_m3ouh"]
+[ext_resource type="Shader" uid="uid://dq63bep28e7jl" path="res://resources/shaders/interface_grad.gdshader" id="3_ln82f"]
+[ext_resource type="Script" uid="uid://c357jphpu4nuv" path="res://scenes/interface/inspector/tabs/tiles/tile_picker.gd" id="3_m3ouh"]
+[ext_resource type="Texture2D" uid="uid://bo5gca8oosl23" path="res://resources/textures/icons/Entry.png" id="5_lq8sw"]
+[ext_resource type="StyleBox" uid="uid://dbhdjr07j1roa" path="res://resources/themes/line_sub.tres" id="6_oxckc"]
+[ext_resource type="Texture2D" uid="uid://clcs73pptu2gh" path="res://resources/textures/icons/Barrier.png" id="7_wum4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wum4i"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b42ka"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no8h3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75, 0.75, 0.75, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exvly"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_right = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuks6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_7a3vo"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_wum4i")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_b42ka")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_no8h3")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_exvly")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_nuks6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lq8sw"]
+shader = ExtResource("3_ln82f")
+shader_parameter/top_color = Color(0, 0.28627452, 0.28627452, 1)
+shader_parameter/bottom_color = Color(0, 0.19607843, 0.19607843, 1)
+shader_parameter/speed = 1.2
+shader_parameter/wave_amplitude = 0.4
+shader_parameter/softness = 1.0
+
+[node name="Tiles" type="PanelContainer" unique_id=530249371]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_1t57n")
+script = ExtResource("2_m3ouh")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1114036169]
+layout_mode = 2
+theme = SubResource("Theme_7a3vo")
+
+[node name="MarginFloor" type="MarginContainer" parent="ScrollContainer" unique_id=2038064448]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer/MarginFloor" unique_id=454681404]
+layout_mode = 2
+
+[node name="VBoxFC" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox" unique_id=470875116]
+layout_mode = 2
+
+[node name="VBoxFloor" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC" unique_id=1307183542]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=97358201]
+layout_mode = 2
+text = "TILES"
+
+[node name="TileSelector" type="OptionButton" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=1280972320]
+layout_mode = 2
+
+[node name="TilePanel" type="PanelContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=1313426032]
+layout_mode = 2
+
+[node name="BGGrad" type="ColorRect" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel" unique_id=527351099]
+visible = false
+material = SubResource("ShaderMaterial_lq8sw")
+layout_mode = 2
+mouse_filter = 1
+
+[node name="TilePicker" type="Control" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel" unique_id=439812917]
+layout_mode = 2
+script = ExtResource("3_m3ouh")
+zoom = 1.5
+
+[node name="VBoxCorner" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC" unique_id=1200755109]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner" unique_id=1375638294]
+layout_mode = 2
+text = "CORNERS"
+
+[node name="CPanel" type="PanelContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner" unique_id=318428897]
+layout_mode = 2
+
+[node name="BGGrad" type="ColorRect" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner/CPanel" unique_id=1081403951]
+visible = false
+material = SubResource("ShaderMaterial_lq8sw")
+layout_mode = 2
+mouse_filter = 1
+
+[node name="CPicker" type="Control" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner/CPanel" unique_id=1529304176]
+layout_mode = 2
+script = ExtResource("3_m3ouh")
+
+[node name="PlaceLayerCheck" type="CheckButton" parent="ScrollContainer/MarginFloor/VBox/VBoxFC" unique_id=1356673813]
+layout_mode = 2
+tooltip_text = "MERGE_TILES_INFO"
+button_pressed = true
+text = "MERGE_TILES"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/MarginFloor/VBox" unique_id=423627171]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxEB" type="HBoxContainer" parent="ScrollContainer/MarginFloor/VBox" unique_id=336680659]
+layout_mode = 2
+
+[node name="EntryB" type="Button" parent="ScrollContainer/MarginFloor/VBox/HBoxEB" unique_id=1098379121]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "ENTRY"
+icon = ExtResource("5_lq8sw")
+
+[node name="SeparEbaniy" type="VSeparator" parent="ScrollContainer/MarginFloor/VBox/HBoxEB" unique_id=328974641]
+layout_mode = 2
+theme_override_styles/separator = ExtResource("6_oxckc")
+
+[node name="BarrierB" type="Button" parent="ScrollContainer/MarginFloor/VBox/HBoxEB" unique_id=92160873]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "BARRIER"
+icon = ExtResource("7_wum4i")
+
+[node name="VBoxWalls" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox" unique_id=1157699524]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginFloor/VBox/VBoxWalls" unique_id=1740626011]
+layout_mode = 2
+text = "WALLS"
+
+[node name="WallList" type="ItemList" parent="ScrollContainer/MarginFloor/VBox/VBoxWalls" unique_id=1463096742]
+layout_mode = 2
+allow_reselect = true
+auto_height = true
+max_columns = 0
+icon_mode = 0
+fixed_icon_size = Vector2i(33, 33)
+
+[node name="HSeparatorD" type="HSeparator" parent="ScrollContainer/MarginFloor/VBox" unique_id=1516974990]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxDoors" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox" unique_id=320035551]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginFloor/VBox/VBoxDoors" unique_id=1443425731]
+layout_mode = 2
+text = "DOORS"
+
+[node name="HBox" type="HBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxDoors" unique_id=2030287833]
+layout_mode = 2
+
+[node name="DoorB" type="Button" parent="ScrollContainer/MarginFloor/VBox/VBoxDoors/HBox" unique_id=132230313]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxDoors/HBox" unique_id=1255891399]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionAlign" type="OptionButton" parent="ScrollContainer/MarginFloor/VBox/VBoxDoors/HBox/VBox" unique_id=1083822909]
+layout_mode = 2
+
+[node name="CheckLocked" type="CheckBox" parent="ScrollContainer/MarginFloor/VBox/VBoxDoors/HBox/VBox" unique_id=1599330933]
+layout_mode = 2
+text = "LOCKED"
+
+[node name="CheckCutscene" type="CheckBox" parent="ScrollContainer/MarginFloor/VBox/VBoxDoors/HBox/VBox" unique_id=1522656701]
+layout_mode = 2
+text = "CUTSCENE"

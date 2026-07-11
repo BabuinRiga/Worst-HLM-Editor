@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://codhlku3hnybd"]
+
+[ext_resource type="PackedScene" uid="uid://1rppebwy16bf" path="res://scenes/modal/modal_window.tscn" id="1_l8ohb"]
+[ext_resource type="Script" uid="uid://bcm0kbhnsd817" path="res://scenes/modal/asset_library.gd" id="2_nwy6y"]
+
+[node name="AssetLibrary" unique_id=1170968940 instance=ExtResource("1_l8ohb")]
+script = ExtResource("2_nwy6y")
+
+[node name="Panel" parent="." index="0" unique_id=1330653976]
+custom_minimum_size = Vector2(900, 550)
+
+[node name="Label" parent="Panel/VPanel/Title" parent_id_path=PackedInt32Array(399364739) index="0" unique_id=999755027]
+text = "ASSET_LIBRARY"
+
+[node name="VBox" type="VBoxContainer" parent="Panel/VPanel/Content" parent_id_path=PackedInt32Array(998380618) index="0" unique_id=1127521175]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VPanel/Content/VBox" index="0" unique_id=334227672]
+layout_mode = 2
+placeholder_text = "DIRECTORY_PATH"
+
+[node name="ItemList" type="ItemList" parent="Panel/VPanel/Content/VBox" index="1" unique_id=531112329]
+layout_mode = 2
+size_flags_vertical = 3
+allow_search = false
+max_text_lines = 2
+scroll_hint_mode = 1
+max_columns = 0
+same_column_width = true
+fixed_column_width = 100
+icon_mode = 0
+fixed_icon_size = Vector2i(100, 100)
+
+[node name="Cancel" parent="Panel/VPanel/MarginPanels/Panels" parent_id_path=PackedInt32Array(1023914106) index="0" unique_id=1008181168]
+text = "CLOSE"

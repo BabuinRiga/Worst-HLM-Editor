@@ -1,8 +1,4 @@
 extends Node2D
 
-
-func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	pass
+@onready var editor_level: EditorLevel = get_tree().get_first_node_in_group("EditorLevel")
+@onready var modal_layer: CanvasLayer = $Interface/ModalLayer

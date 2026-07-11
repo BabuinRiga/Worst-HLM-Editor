@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://s6p65vjqtos8"]
+
+[ext_resource type="PackedScene" uid="uid://1rppebwy16bf" path="res://scenes/modals/modal_window.tscn" id="1_hvifg"]
+[ext_resource type="Script" uid="uid://3r0np5hecmvl" path="res://scenes/modals/hm_2_path.gd" id="2_2orky"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anena"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.29411766)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga5ei"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.11764706)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="HM2Path" unique_id=1170968940 instance=ExtResource("1_hvifg")]
+script = ExtResource("2_2orky")
+
+[node name="Panel" parent="." index="0" unique_id=1330653976]
+custom_minimum_size = Vector2(500, 150)
+
+[node name="Label" parent="Panel/VPanel/Title" parent_id_path=PackedInt32Array(399364739) index="0" unique_id=999755027]
+text = "HM2PATH"
+
+[node name="Content" parent="Panel/VPanel" parent_id_path=PackedInt32Array(1186534741) index="1" unique_id=998380618]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VPanel/Content" index="0" unique_id=776850912]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VPanel/Content/VBoxContainer" index="0" unique_id=812648938]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6255974, 0.625597, 0.6255971, 1)
+theme_override_font_sizes/normal_font_size = 14
+text = "WHY_HM2PATH"
+fit_content = true
+
+[node name="SelectPath" type="HBoxContainer" parent="Panel/VPanel/Content/VBoxContainer" index="1" unique_id=1798241453]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VPanel/Content/VBoxContainer/SelectPath" index="0" unique_id=755123954]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "PLS_HM2PATH"
+
+[node name="Button" type="Button" parent="Panel/VPanel/Content/VBoxContainer/SelectPath" index="1" unique_id=1066342086]
+layout_mode = 2
+text = "SELECT"
+
+[node name="FileDialog" type="FileDialog" parent="Panel/VPanel/Content/VBoxContainer/SelectPath" index="2" unique_id=1126874845]
+oversampling_override = 1.0
+title = "Open a Directory"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="Apply" type="Button" parent="Panel/VPanel/MarginPanels/Panels" parent_id_path=PackedInt32Array(1023914106) index="0" unique_id=944452948]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_anena")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ga5ei")
+disabled = true
+text = "APPLY"
+
+[node name="Cancel" parent="Panel/VPanel/MarginPanels/Panels" parent_id_path=PackedInt32Array(1023914106) index="1" unique_id=1008181168]
+visible = false

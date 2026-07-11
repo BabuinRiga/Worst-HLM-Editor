@@ -1,0 +1,122 @@
+[
+    {
+        "name": "The Fans (All)",
+        "sprite_id": 326
+    },
+    {
+        "name": "The Cop",
+        "sprite_id": 1243
+    },
+    {
+        "name": "The Writer",
+        "sprite_id": 2022
+    },
+    {
+        "name": "The Soldier",
+        "sprite_id": 533
+    },
+    {
+        "name": "The Son (All)",
+        "sprite_id": 2358
+    },
+    {
+        "name": "The Rat",
+        "sprite_id": 2394
+    },
+    {
+        "name": "The Cobra (All)",
+        "sprite_id": 1401
+    },
+    {
+        "name": "The Butcher",
+        "sprite_id": 12
+    },
+    {
+        "name": "The Henchman",
+        "sprite_id": 1786
+    },
+    {
+        "name": "The Hammer",
+        "sprite_id": 4162
+    },
+    {
+        "name": "Jacket",
+        "sprite_id": 4129
+    },
+    {
+        "name": "Biker",
+        "sprite_id": 4080
+    },
+
+
+    {
+        "name": "Corey",
+        "sprite_id": 326
+    },
+    {
+        "name": "Tony",
+        "sprite_id": 293
+    },
+    {
+        "name": "Alex & Ash",
+        "sprite_id": 1735
+    },
+    {
+        "name": "Mark",
+        "sprite_id": 462
+    },
+
+
+    {
+        "name": "Jake",
+        "sprite_id": 1401
+    },
+    {
+        "name": "Irvin",
+        "sprite_id": 3856
+    },
+    {
+        "name": "Dallas",
+        "sprite_id": 3869
+    },
+    {
+        "name": "The Cobra (No Mask)",
+        "sprite_id": 1401
+    },
+
+
+    {
+        "name": "Bodyguard",
+        "sprite_id": 2354
+    },
+    {
+        "name": "Dirty Hands",
+        "sprite_id": 2358
+    },
+    {
+        "name": "Bloodline",
+        "sprite_id": 2435
+    },
+
+
+    {
+        "name": "Machinegun",
+        "sprite_id": 1101
+    },
+    {
+        "name": "Shotgun",
+        "sprite_id": 535
+    },
+    {
+        "name": "Heavy",
+        "sprite_id": 536
+    },
+    {
+        "name": "Sniper",
+        "sprite_id": 1092
+    },
+    {
+        "name": "Flamethrower",
+        "sprite_id": 534
+    }
+]

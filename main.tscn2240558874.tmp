@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c7k6c3x6jyi4"]
+
+[ext_resource type="Script" uid="uid://clhqwp0aya3ga" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c0dviuake46hs" path="res://interface.tscn" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://c3oqcjake8l27" path="res://resources/shaders/background.gdshader" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cd35wahbr6gkl" path="res://scenes/editor/editor_level.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://y20ajepcqddh" path="res://scenes/modal/loading_window.tscn" id="4_lquwl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("2_0xm2m")
+shader_parameter/color_a = Color(0.9532494, 7.02709e-06, 0.60393906, 1)
+shader_parameter/color_b = Color(0.2, 0.69411767, 0.69411767, 1)
+shader_parameter/speed = 0.50000002049012
+shader_parameter/gradient_direction = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lquwl"]
+
+[node name="Main" type="Node2D" unique_id=1248902654]
+script = ExtResource("1_h2yge")
+
+[node name="Editor" type="CanvasLayer" parent="." unique_id=219335789]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="Editor" unique_id=1090180457]
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=1300488519]
+
+[node name="Interface" parent="Interface" unique_id=836904121 instance=ExtResource("1_ig7tw")]
+
+[node name="ModalLayer" type="CanvasLayer" parent="Interface" unique_id=2138253753]
+layer = 100
+
+[node name="LoadingWindow" parent="Interface/ModalLayer" unique_id=1170968940 instance=ExtResource("4_lquwl")]
+visible = false
+
+[node name="EditorLevel" parent="." unique_id=649096 groups=["EditorLevel"] instance=ExtResource("3_1bvp3")]
+
+[node name="InfoPanel" type="PanelContainer" parent="EditorLevel" unique_id=1740608955]
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lquwl")

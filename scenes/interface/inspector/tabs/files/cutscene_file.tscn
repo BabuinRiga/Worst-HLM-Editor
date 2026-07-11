@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ccayrx0tbow25"]
+
+[ext_resource type="Script" uid="uid://bfhe2mjmgfyld" path="res://scenes/interface/inspector/tabs/files/cutscene_file.gd" id="1_uvhk0"]
+[ext_resource type="Texture2D" uid="uid://drrh4307eypd1" path="res://resources/textures/icons/Cancel.svg" id="1_w07fj"]
+[ext_resource type="Texture2D" uid="uid://b5wormtqcnhhk" path="res://resources/textures/icons/File.svg" id="2_uvhk0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvhk0"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="CutsceneFile" type="PanelContainer" unique_id=2108280432]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+script = ExtResource("1_uvhk0")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1115416742]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer" unique_id=133775001]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBox" unique_id=793113146]
+texture_filter = 4
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("2_uvhk0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBox" unique_id=601575369]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "FILE"
+
+[node name="Button" type="Button" parent="MarginContainer" unique_id=1769740827]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_uvhk0")
+icon = ExtResource("1_w07fj")
+icon_alignment = 1
+expand_icon = true

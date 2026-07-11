@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://jrram36rfvkb"]
+
+[ext_resource type="Script" uid="uid://cyceed18gtdbn" path="res://scenes/interface/inspector/edit_nodes/trans_prm.gd" id="1_0nyji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wt6p"]
+
+[node name="TransPrm" type="PanelContainer" unique_id=1004120752]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1wt6p")
+script = ExtResource("1_0nyji")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1583103300]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=528284136]
+layout_mode = 2
+
+[node name="VBoxFloor" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1200925728]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxFloor" unique_id=377638643]
+layout_mode = 2
+text = "FLOOR"
+
+[node name="OptionFloor" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxFloor" unique_id=2081426348]
+layout_mode = 2
+
+[node name="HBoxOffset" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1716127931]
+layout_mode = 2
+
+[node name="VBoxX" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxOffset" unique_id=611396657]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxOffset/VBoxX" unique_id=2093054856]
+layout_mode = 2
+text = "T_OFFSET_X"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxOffset/VBoxX" unique_id=817961730]
+layout_mode = 2
+max_value = 9999.0
+allow_greater = true
+allow_lesser = true
+
+[node name="VBoxY" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxOffset" unique_id=792830664]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxOffset/VBoxY" unique_id=332510535]
+layout_mode = 2
+text = "T_OFFSET_Y"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxOffset/VBoxY" unique_id=2009499329]
+layout_mode = 2
+max_value = 9999.0
+allow_greater = true
+allow_lesser = true

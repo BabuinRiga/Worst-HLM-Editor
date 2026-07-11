@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://tlwafnkrjgrg"]
+
+[ext_resource type="Script" uid="uid://cwhe5uvlw471h" path="res://scenes/interface/inspector/edit_nodes/obj_coord.gd" id="1_wtsf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wt6p"]
+
+[node name="ObjCoord" type="PanelContainer" unique_id=1004120752]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1wt6p")
+script = ExtResource("1_wtsf0")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1583103300]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1544297566]
+layout_mode = 2
+
+[node name="Labels" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1824824499]
+layout_mode = 2
+
+[node name="XLabel" type="Label" parent="MarginContainer/VBoxContainer/Labels" unique_id=1623926833]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "X"
+
+[node name="YLabel" type="Label" parent="MarginContainer/VBoxContainer/Labels" unique_id=378749576]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Y"
+
+[node name="Inputs" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=440508894]
+layout_mode = 2
+
+[node name="SpriteInput" type="SpinBox" parent="MarginContainer/VBoxContainer/Inputs" unique_id=351908681]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 9999.0
+allow_greater = true
+allow_lesser = true
+
+[node name="ObjectInput" type="SpinBox" parent="MarginContainer/VBoxContainer/Inputs" unique_id=344351588]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 9999.0
+allow_greater = true
+allow_lesser = true
+
+[node name="AnglePanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=796496959]
+layout_mode = 2
+
+[node name="AngleLabel" type="Label" parent="MarginContainer/VBoxContainer/AnglePanel" unique_id=1616426293]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ANGLE"
+
+[node name="AngleInput" type="SpinBox" parent="MarginContainer/VBoxContainer/AnglePanel" unique_id=1130611550]
+layout_mode = 2
+max_value = 360.0
+allow_greater = true
+allow_lesser = true
+alignment = 1

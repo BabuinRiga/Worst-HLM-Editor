@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://1rppebwy16bf"]
+
+[ext_resource type="Script" uid="uid://dmxr0xxxvkxf8" path="res://scenes/modals/modal_window.gd" id="1_hqhtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqhtn"]
+bg_color = Color(0, 0, 0, 0.37254903)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26mav"]
+bg_color = Color(0.12591082, 0.12591085, 0.12591076, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anena"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.29411766)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga5ei"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.11764706)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ModalWindow" type="PanelContainer" unique_id=1170968940]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_hqhtn")
+script = ExtResource("1_hqhtn")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1330653976]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_26mav")
+
+[node name="VPanel" type="VBoxContainer" parent="Panel" unique_id=1186534741]
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="Panel/VPanel" unique_id=399364739]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Panel/VPanel/Title" unique_id=999755027]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "MODAL"
+horizontal_alignment = 1
+
+[node name="Content" type="MarginContainer" parent="Panel/VPanel" unique_id=998380618]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginPanels" type="MarginContainer" parent="Panel/VPanel" unique_id=1079869583]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panels" type="HBoxContainer" parent="Panel/VPanel/MarginPanels" unique_id=1023914106]
+layout_mode = 2
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Panel/VPanel/MarginPanels/Panels" unique_id=1008181168]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_anena")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ga5ei")
+text = "CANCEL"
+
+[connection signal="pressed" from="Panel/VPanel/MarginPanels/Panels/Cancel" to="." method="_on_cancel_pressed"]
