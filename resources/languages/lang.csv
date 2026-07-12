@@ -180,3 +180,9 @@ LOADING_OBJECTS,Loading objects,Загрузка объектов
 NO_TEXTURE,No texture,Нет текстуры
 SINGLES,Singles,Одиночные
 CAMPAIGNS,Campaigns,Кампании
+SPRITE_ID,Sprite ID,ID Спрайта
+OBJECT_ID,Object ID,ID Объекта
+ANGLE,Angle,Угол
+FRAME,Frame,Кадр
+T_OFFSET_X,X Offset,X Смещение
+T_OFFSET_Y,Y Offset,Y Смещение

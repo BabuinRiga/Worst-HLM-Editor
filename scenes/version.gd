@@ -2,7 +2,7 @@ extends HTTPRequest
 
 @onready var modal_layer: CanvasLayer = $"../Interface/ModalLayer"
 
-const CURRENT_VERSION = "v0.0.9"
+const CURRENT_VERSION = "v0.1.0"
 const GITHUB_API_URL = "https://api.github.com/repos/BabuinRiga/Worst-HLM-Editor/releases/latest"
 const UPDATE_MODAL_SCENE = preload("uid://4ajnig573320")
 
