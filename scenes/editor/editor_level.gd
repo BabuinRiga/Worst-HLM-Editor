@@ -10,11 +10,11 @@ class_name EditorLevel
 
 const SAVE_DOESNT_EXIST = preload("uid://cyyvgm8v200p6")
 
-var level_info:          LevelInfo
-var floor_count:         int = 0
+var level_info: LevelInfo
+var floor_count: int = 0
 var current_floor_index: int = -1
-var active_floor:        Floor = null
-var _floor_cache:        Array[Floor] = []
+var active_floor: Floor = null
+var _floor_cache: Array[Floor] = []
 
 signal level_loaded
 signal level_updated
@@ -33,13 +33,13 @@ func _load_resource_level(folder: String) -> void:
 	if not FileAccess.file_exists(hlm_path):
 		return
 	
-	var info         := LevelInfo.new()
-	info.type        = LevelInfo.Type.SINGLE
+	var info := LevelInfo.new()
+	info.type = LevelInfo.Type.SINGLE
 	info.folder_path = folder
-	info.hlm_path    = hlm_path
-	info.prefix      = "level"
-	info.cover       = LevelScanner._load_cover(folder + "/level.png", true)
-	info.exist       = false
+	info.hlm_path = hlm_path
+	info.prefix = "level"
+	info.cover = LevelScanner._load_cover(folder + "/level.png", true)
+	info.exist = false
 	info.load_hlm()
 	
 	load_level(info)

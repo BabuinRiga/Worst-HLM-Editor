@@ -1,8 +1,5 @@
 class_name LevelScanner
 
-const SINGLE_COVER_ID = 4259
-const CAMPAIGN_COVER_ID = 4267
-
 const DOCS_PATH := "/My Games/HotlineMiami2"
 
 # ------------------------------------------------- API
@@ -54,10 +51,9 @@ static func scan_campaigns() -> Array:
 		if not FileAccess.file_exists(cpg_path):
 			continue
 		
-		var cpg_info := LevelInfo.new()
-		cpg_info.type = LevelInfo.Type.CAMPAIGN_CHAPTER
+		var cpg_info := CampaignInfo.new()
 		cpg_info.folder_path = folder
-		cpg_info.hlm_path = cpg_path
+		cpg_info.cpg_path = cpg_path
 		cpg_info.cover = _load_cover(folder + "/campaign.png", false)
 		cpg_info.name = _read_first_line(cpg_path)
 		cpg_info.exist = true
@@ -71,7 +67,6 @@ static func scan_campaigns() -> Array:
 				continue
 			
 			var chpt_info := LevelInfo.new()
-			chpt_info.type = LevelInfo.Type.CAMPAIGN_CHAPTER
 			chpt_info.folder_path = folder
 			chpt_info.hlm_path = chpt_hlm
 			chpt_info.cover = _load_cover(folder + "/main%d.png" % i, true)

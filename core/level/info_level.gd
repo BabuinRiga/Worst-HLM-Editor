@@ -1,16 +1,12 @@
 class_name LevelInfo
-extends RefCounted
+extends EditorPlayInfo
 
-enum Type { SINGLE, CAMPAIGN_CHAPTER, CAMPAIGN_LEVEL }
+enum Type { SINGLE, CAMPAIGN_LEVEL }
+const SINGLE_COVER_ID = 4259
 
 var type: Type
-var name: String
-var cover: Texture2D
-var folder_path: String
 var hlm_path: String
 var prefix: String
-
-var exist: bool
 
 # ------------------------------------------------------
 
@@ -114,14 +110,7 @@ func save_ver() -> bool:
 	f.store_line("2")
 	return true
 
-func level_folder() -> String:
-	return folder_path
-
 func get_cover_texture() -> Texture2D:
-	if cover != null:
-		return cover
-	
-	if type == Type.SINGLE:
-		return Defs.get_sprite_def(LevelScanner.SINGLE_COVER_ID).frames[0]
-	else:
-		return Defs.get_sprite_def(LevelScanner.CAMPAIGN_COVER_ID).frames[0]
+	if cover == null:
+		return Defs.get_sprite_def(SINGLE_COVER_ID).frames[0]
+	return cover

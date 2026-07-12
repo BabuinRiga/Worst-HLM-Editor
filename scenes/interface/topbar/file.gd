@@ -9,9 +9,6 @@ func _ready() -> void:
 	id_pressed.connect(_on_file_pressed)
 	editor_level.level_updated.connect(_on_level_updated)
 
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_file_pressed(id: int) -> void:
 	match id:
@@ -44,11 +41,12 @@ func _save_file() -> void:
 	editor_level.save_level()
 
 func _open_file_path() -> void:
-	if not editor_level.level_info:
+	var level_info = editor_level.level_info
+	if not level_info:
 		return
-	var file_path = editor_level.level_info.level_folder()
-	if editor_level.level_info.exist and DirAccess.dir_exists_absolute(file_path):
-		OS.shell_open(file_path)
+	var file_path = level_info.hlm_path
+	if editor_level.level_info.exist and FileAccess.file_exists(file_path):
+		OS.shell_show_in_file_manager(file_path)
 
 func _on_level_updated() -> void:
 	var level_exist: bool = editor_level.level_info.exist
