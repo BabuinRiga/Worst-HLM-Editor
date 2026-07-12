@@ -6,8 +6,7 @@
 [ext_resource type="Shader" uid="uid://c3oqcjake8l27" path="res://resources/shaders/background.gdshader" id="4_0noqu"]
 [ext_resource type="PackedScene" uid="uid://761gd0qlgdgm" path="res://scenes/interface/inspector.tscn" id="4_4rbkc"]
 [ext_resource type="PackedScene" uid="uid://cd35wahbr6gkl" path="res://scenes/editor/editor_level.tscn" id="4_pt1ru"]
-[ext_resource type="Script" uid="uid://bxtil13khfer2" path="res://scenes/interface/bg/bg.gd" id="5_p1uyo"]
-[ext_resource type="Script" uid="uid://db8fbqd4po5ok" path="res://scenes/interface/bg/smoke_layer.gd" id="6_tf5yn"]
+[ext_resource type="Script" uid="uid://br0uwyc5hkhxn" path="res://scenes/interface/bg/bg.gd" id="5_p1uyo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1uyo"]
 bg_color = Color(0.11372549, 0.11372549, 0.11372549, 1)
@@ -15,9 +14,6 @@ bg_color = Color(0.11372549, 0.11372549, 0.11372549, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxv5b"]
 shader = ExtResource("4_0noqu")
 shader_parameter/bg_color = Color(1, 0, 1, 1)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tf5yn"]
-blend_mode = 1
 
 [node name="Interface" type="Control" unique_id=836904121]
 auto_translate_mode = 1
@@ -80,41 +76,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
-
-[node name="ViewportContainer" type="SubViewportContainer" parent="Container/HSplitContainer/SubViewportContainer/SubViewport/BG" unique_id=1471295376]
-texture_filter = 2
-material = SubResource("CanvasItemMaterial_tf5yn")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-stretch = true
-
-[node name="Viewport" type="SubViewport" parent="Container/HSplitContainer/SubViewportContainer/SubViewport/BG/ViewportContainer" unique_id=1060569787]
-disable_3d = true
-transparent_bg = true
-handle_input_locally = false
-canvas_item_default_texture_filter = 0
-size = Vector2i(1067, 769)
-size_2d_override = Vector2i(192, 128)
-size_2d_override_stretch = true
-render_target_clear_mode = 1
-render_target_update_mode = 4
-
-[node name="TrailFade" type="ColorRect" parent="Container/HSplitContainer/SubViewportContainer/SubViewport/BG/ViewportContainer/Viewport" unique_id=1363407897]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0, 0, 0, 0.006)
-
-[node name="Smoke" type="Node2D" parent="Container/HSplitContainer/SubViewportContainer/SubViewport/BG/ViewportContainer/Viewport" unique_id=1612011177]
-script = ExtResource("6_tf5yn")
 
 [node name="Inspector" parent="Container/HSplitContainer" unique_id=1568941226 instance=ExtResource("4_4rbkc")]
 layout_mode = 2

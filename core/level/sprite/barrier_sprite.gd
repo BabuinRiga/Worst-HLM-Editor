@@ -2,7 +2,7 @@ extends BaseSprite
 class_name BarrierSprite
 
 const COLOR = Color(1, 0, 0, 0.4)
-var lenght
+var lenght: float = 0.0
 
 func _init(_lenght: int = 0):
 	set_lenght(_lenght)

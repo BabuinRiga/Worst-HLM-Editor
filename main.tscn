@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clhqwp0aya3ga" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c0dviuake46hs" path="res://scenes/interface/interface.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bhfljogoluyiq" path="res://scenes/version.gd" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://y20ajepcqddh" path="res://scenes/modals/loading_window.tscn" id="4_lquwl"]
 
 [node name="Main" type="Node2D" unique_id=1248902654]
@@ -16,3 +17,6 @@ layer = 100
 
 [node name="LoadingWindow" parent="Interface/ModalLayer" unique_id=1170968940 instance=ExtResource("4_lquwl")]
 visible = false
+
+[node name="Version" type="HTTPRequest" parent="." unique_id=1336299404]
+script = ExtResource("4_1bvp3")

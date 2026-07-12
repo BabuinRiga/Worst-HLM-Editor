@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://4ajnig573320"]
 
 [ext_resource type="PackedScene" uid="uid://1rppebwy16bf" path="res://scenes/modals/modal_window.tscn" id="1_ifvyg"]
+[ext_resource type="Script" uid="uid://cb7bwefkoukh2" path="res://scenes/modals/update_avaible.gd" id="2_mkg8s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkg8s"]
+bg_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anena"]
 content_margin_left = 10.0
@@ -14,12 +18,55 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="UpdateAvaible" unique_id=1170968940 instance=ExtResource("1_ifvyg")]
+script = ExtResource("2_mkg8s")
 
 [node name="Panel" parent="." index="0" unique_id=1330653976]
-custom_minimum_size = Vector2(400, 500)
+custom_minimum_size = Vector2(400, 650)
 
 [node name="Label" parent="Panel/VPanel/Title" parent_id_path=PackedInt32Array(399364739) index="0" unique_id=999755027]
 text = "NEW_UPD_AV"
+
+[node name="VBox" type="VBoxContainer" parent="Panel/VPanel/Content" parent_id_path=PackedInt32Array(998380618) index="0" unique_id=1170775050]
+layout_mode = 2
+
+[node name="Header" type="TextureRect" parent="Panel/VPanel/Content/VBox" index="0" unique_id=1632079282]
+layout_mode = 2
+expand_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VPanel/Content/VBox" index="1" unique_id=523938448]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VPanel/Content/VBox/ScrollContainer" index="0" unique_id=1878363478]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VPanel/Content/VBox/ScrollContainer/MarginContainer" index="0" unique_id=509643403]
+layout_mode = 2
+focus_mode = 2
+mouse_default_cursor_shape = 1
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[node name="PanelNote" type="PanelContainer" parent="Panel/VPanel/Content/VBox" index="2" unique_id=1516352552]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_mkg8s")
+
+[node name="Note" type="Label" parent="Panel/VPanel/Content/VBox/PanelNote" index="0" unique_id=1162847890]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.5931336, 0.59313357, 0.59313357, 1)
+theme_override_font_sizes/font_size = 14
+text = "UPDATE_NOTE"
+horizontal_alignment = 1
 
 [node name="Update" type="Button" parent="Panel/VPanel/MarginPanels/Panels" parent_id_path=PackedInt32Array(1023914106) index="0" unique_id=2055336475]
 layout_mode = 2

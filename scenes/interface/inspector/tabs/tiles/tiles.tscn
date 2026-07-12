@@ -2,7 +2,6 @@
 
 [ext_resource type="StyleBox" uid="uid://bohcdcd6n6o2o" path="res://resources/themes/panels_light.tres" id="1_1t57n"]
 [ext_resource type="Script" uid="uid://csyolwa2j51x2" path="res://scenes/interface/inspector/tabs/tiles/tiles.gd" id="2_m3ouh"]
-[ext_resource type="Shader" uid="uid://dq63bep28e7jl" path="res://resources/shaders/interface_grad.gdshader" id="3_ln82f"]
 [ext_resource type="Script" uid="uid://c357jphpu4nuv" path="res://scenes/interface/inspector/tabs/tiles/tile_picker.gd" id="3_m3ouh"]
 [ext_resource type="Texture2D" uid="uid://bo5gca8oosl23" path="res://resources/textures/icons/Entry.png" id="5_lq8sw"]
 [ext_resource type="StyleBox" uid="uid://dbhdjr07j1roa" path="res://resources/themes/line_sub.tres" id="6_oxckc"]
@@ -78,12 +77,6 @@ VScrollBar/styles/scroll = SubResource("StyleBoxFlat_exvly")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_nuks6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lq8sw"]
-shader = ExtResource("3_ln82f")
-shader_parameter/top_color = Color(0, 0.28627452, 0.28627452, 1)
-shader_parameter/bottom_color = Color(0, 0.19607843, 0.19607843, 1)
-shader_parameter/speed = 1.2
-shader_parameter/wave_amplitude = 0.4
-shader_parameter/softness = 1.0
 
 [node name="Tiles" type="PanelContainer" unique_id=530249371]
 anchors_preset = 15

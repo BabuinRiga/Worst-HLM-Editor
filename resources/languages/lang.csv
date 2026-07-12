@@ -142,7 +142,7 @@ BIG_PIPE,Big pipe,Большая труба
 SHARD,Shard,Осколок
 BRUSH,Brush,Щетка
 WEAPONS,Weapons,Оружия
-HAMER,Hammer,Молоток
+HAMMER,Hammer,Молоток
 FLYKNIFE,Butterfly knife,Нож бабочка
 NAIL,Nail gun,Гвоздемет
 BOTTLE,Bottle,Бутылка
@@ -163,3 +163,6 @@ LEVEL_DOESNT_EXIST,Level doesnt exist,Уровень несуществует
 SAVE_DOESNT_EXIST_CONFIRM,Are you sure you want to create a new level?,Вы действительно хотите создать новый уровень?
 YES,Yes,Да
 NO,No,Нет
+UPDATE,Update,Обновить
+NEW_UPD_AV,New Update Avaible,Доступно Новое Обновление
+UPDATE_NOTE,"After the update, all settings will be saved",После обновления все настройки будут сохранены
