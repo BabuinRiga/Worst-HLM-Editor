@@ -1856,6 +1856,7 @@ text = "HOUR"
 
 [node name="Input" type="SpinBox" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate/HBoxTime/VBoxHour" unique_id=857039011]
 layout_mode = 2
+max_value = 24.0
 
 [node name="VBoxMinute" type="VBoxContainer" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate/HBoxTime" unique_id=176266348]
 layout_mode = 2
@@ -1867,6 +1868,7 @@ text = "MINUTE"
 
 [node name="Input" type="SpinBox" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate/HBoxTime/VBoxMinute" unique_id=1417661141]
 layout_mode = 2
+max_value = 60.0
 
 [node name="LDay" type="Label" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate" unique_id=990955572]
 layout_mode = 2
@@ -1874,6 +1876,8 @@ text = "DAY"
 
 [node name="IDay" type="SpinBox" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate" unique_id=277171749]
 layout_mode = 2
+max_value = 31.0
+allow_greater = true
 
 [node name="HBoxCalend" type="HBoxContainer" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate" unique_id=552928383]
 layout_mode = 2
@@ -1888,6 +1892,7 @@ text = "MONTH"
 
 [node name="Input" type="SpinBox" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate/HBoxCalend/VBoxMonth" unique_id=144884426]
 layout_mode = 2
+max_value = 12.0
 
 [node name="VBoxYear" type="VBoxContainer" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate/HBoxCalend" unique_id=1876339425]
 layout_mode = 2
@@ -1899,6 +1904,8 @@ text = "YEAR"
 
 [node name="Input" type="SpinBox" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer/VBoxDate/HBoxCalend/VBoxYear" unique_id=580202348]
 layout_mode = 2
+max_value = 3000.0
+allow_greater = true
 
 [node name="VBoxCSA" type="VBoxContainer" parent="VBoxContainer/ScrollInfo/InfoPanel/Margin/VBoxContainer" unique_id=1896877770]
 layout_mode = 2

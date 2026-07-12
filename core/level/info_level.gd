@@ -52,7 +52,6 @@ func load_hlm() -> bool:
 	boundaries = Rect2i(left, top, right - left, bottom - top)
 	
 	background_id = int(f.get_line())
-	f.get_line()
 	
 	hour = f.get_line().strip_edges()
 	minute = f.get_line().strip_edges()
@@ -85,8 +84,7 @@ func save_hlm() -> bool:
 	f.store_line(str(boundaries.end.x))
 	f.store_line(str(boundaries.end.y))
 	f.store_line(str(background_id))
-	f.store_line("0")
-	f.store_line(hour)
+	f.store_line(hour) # ден и антон
 	f.store_line(minute)
 	f.store_line(day)
 	f.store_line(month)
