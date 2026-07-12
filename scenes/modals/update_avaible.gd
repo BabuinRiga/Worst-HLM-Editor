@@ -18,7 +18,7 @@ func setup(latest_version: String, url: String, changelog: String, image_texture
 	if not is_node_ready():
 		await ready
 	
-	rich_text_label.text = "[b][font_size=30]" + latest_version + "[/font_size][/b]\n\n" + _markdown_to_bbcode(changelog)
+	rich_text_label.text = "[b][font_size=30]v" + latest_version + "[/font_size][/b]\n\n" + _markdown_to_bbcode(changelog)
 	
 	if image_texture != null:
 		header.texture = image_texture
