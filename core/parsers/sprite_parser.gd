@@ -6,8 +6,8 @@ static func parse(
 	override_pngs: Array = []
 ) -> Dictionary:
 	var result: Dictionary = {}
-	var keys   := raw.keys().filter(func(k: String) -> bool: return k.ends_with(".meta"))
-	var total  := keys.size()
+	var keys := raw.keys().filter(func(k: String) -> bool: return k.ends_with(".meta"))
+	var total := keys.size()
 	var last_tick := Time.get_ticks_msec()
 	
 	if emit_progress:

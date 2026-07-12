@@ -71,10 +71,10 @@ func get_sound(name: String) -> AudioStreamWAV:
 
 func _rebuild_assets(raw: Dictionary, override_pngs: Array = []) -> void:
 	_sprites = await SpriteParser.parse(raw, true, override_pngs)
-	_sounds = SoundParser.parse(raw)
+	_sounds = await SoundParser.parse(raw)
 	#var collision_masks := await CollisionMaskParser.parse(raw)
-	var bin_objects  := await ObjectsBinParser.parse(raw)
-	var bin_sprites  := await SpritesBinParser.parse(raw)
+	var bin_objects := await ObjectsBinParser.parse(raw)
+	var bin_sprites := await SpritesBinParser.parse(raw)
 	await Defs.link_assets(bin_objects, bin_sprites)
 	asset_rebuilded.emit()
 

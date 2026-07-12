@@ -83,14 +83,12 @@ func _load_tsv_definitions() -> void:
 func _load_objects_tsv() -> void:
 	var f := FileAccess.open("res://resources/tables/objects.tsv", FileAccess.READ)
 	if f == null:
-		push_error("GameDefinitions: file not found objects.tsv")
 		return
 	
-	var total     := _count_tsv_rows(f, 2)
+	var total := _count_tsv_rows(f, 2)
 	var last_tick := Time.get_ticks_msec()
-	var idx        := 0
-	var load_name := "OBJECT_PATHS"
-	AppEvents.load_started.emit(load_name)
+	var idx := 0
+	AppEvents.load_started.emit("LOADING_OBJECTS_PATHS")
 	
 	if not f.eof_reached():
 		f.get_csv_line("\t")
@@ -109,7 +107,7 @@ func _load_objects_tsv() -> void:
 		idx += 1
 		var now := Time.get_ticks_msec()
 		if now - last_tick >= 50:
-			AppEvents.load_progress.emit(idx, total, load_name)
+			AppEvents.load_progress.emit(idx, total, _objects_paths[id])
 			await Engine.get_main_loop().process_frame
 			last_tick = Time.get_ticks_msec()
 	
@@ -159,12 +157,11 @@ func _load_objects_tsv() -> void:
 func _load_tiles_tsv() -> void:
 	var f := FileAccess.open("res://resources/tables/tiles.tsv", FileAccess.READ)
 	if f == null:
-		push_error("GameDefinitions: file not found tiles.tsv")
 		return
 	
-	var total     := _count_tsv_rows(f, 5)
+	var total := _count_tsv_rows(f, 5)
 	var last_tick := Time.get_ticks_msec()
-	var idx       := 0
+	var idx := 0
 	var load_name := "LOADING_TILES"
 	AppEvents.load_started.emit(load_name)
 	
@@ -175,12 +172,12 @@ func _load_tiles_tsv() -> void:
 		var row := f.get_csv_line("\t")
 		if row.size() < 5 or row[0].is_empty():
 			continue
-		var tile       := HLMTile.new()
-		tile.title     = row[0]
-		tile.name      = row[1]
-		tile.id        = int(row[2])
-		tile.depth     = int(row[3])
-		tile.size      = int(row[4])
+		var tile := HLMTile.new()
+		tile.title = row[0]
+		tile.name = row[1]
+		tile.id = int(row[2])
+		tile.depth = int(row[3])
+		tile.size = int(row[4])
 		_tiles.append(tile)
 		idx += 1
 		var now := Time.get_ticks_msec()
@@ -199,25 +196,25 @@ func _link_sprites(bin_sprites: Dictionary = {}) -> void:
 	
 	_sprites.clear()
 	
-	var keys      := bin_sprites.keys()
-	var total     := keys.size()
+	var keys := bin_sprites.keys()
+	var total := keys.size()
 	var last_tick := Time.get_ticks_msec()
 	var load_name := "LINKING_SPRITES"
 	AppEvents.load_started.emit(load_name)
 	
 	for idx in range(total):
-		var id: int        = keys[idx]
+		var id: int = keys[idx]
 		var bs: Dictionary = bin_sprites[id]
 		
-		var def    := SpriteDef.new()
-		def.id     = id
-		def.name   = bs["name"]
+		var def := SpriteDef.new()
+		def.id = id
+		def.name = bs["name"]
 		def.center = -bs["center"]
 		
 		var frames := Assets.get_sprite(def.name)
 		if not frames.is_empty():
 			def.frames = frames
-			
+		
 		_sprites[id] = def
 		
 		var now := Time.get_ticks_msec()
@@ -226,17 +223,17 @@ func _link_sprites(bin_sprites: Dictionary = {}) -> void:
 			await Engine.get_main_loop().process_frame
 			last_tick = Time.get_ticks_msec()
 	
-	var fallback    := SpriteDef.new()
-	fallback.id     = -1
-	fallback.name   = "NO_TEXTURE"
+	var fallback := SpriteDef.new()
+	fallback.id = -1
+	fallback.name = "NO_TEXTURE"
 	fallback.center = -Vector2i(10, 10)
 	fallback.frames = [_DEFAULT_TEXTURE]
-	_sprites[-1]    = fallback
+	_sprites[-1] = fallback
 	
 	AppEvents.load_finished.emit()
 
 func _build_tiles() -> void:
-	var total     := _tiles.size()
+	var total := _tiles.size()
 	var last_tick := Time.get_ticks_msec()
 	var load_name := "BUILDING_TILES"
 	AppEvents.load_started.emit(load_name)
@@ -249,10 +246,10 @@ func _build_tiles() -> void:
 		var frames := Assets.get_sprite(tile.name)
 		if not frames.is_empty():
 			tile.tilemap = frames[0]
-			var img  := frames[0].get_image()
-			var w    := img.get_width()
-			var h    := img.get_height()
-			var s16  := 16 if tile.size != 8 else 8
+			var img := frames[0].get_image()
+			var w := img.get_width()
+			var h := img.get_height()
+			var s16 := 16 if tile.size != 8 else 8
 			
 			for x in range(0, w, s16):
 				for y in range(0, h, s16):
@@ -345,26 +342,25 @@ func _build_tiles() -> void:
 
 func _apply_bin_objects(bin_objects: Dictionary) -> void:
 	if bin_objects.is_empty():
-		push_error("GameDefinitions: bin_objects is empty")
 		return
 	
 	_objects.clear()
 	
-	var keys      := bin_objects.keys()
-	var total     := keys.size()
+	var keys := bin_objects.keys()
+	var total := keys.size()
 	var last_tick := Time.get_ticks_msec()
 	AppEvents.load_started.emit("LOADING_OBJECTS")
 	
 	for idx in range(total):
-		var id: int        = keys[idx]
+		var id: int = keys[idx]
 		var src: Dictionary = bin_objects[id]
-		var obj             := HLMObject.new()
-		obj.object_id      = src["object_id"]
-		obj.object_name    = src["object_name"]
-		obj.sprite_id      = src["sprite_id"] if src["sprite_id"] >= 0 else -1
-		obj.mask_id        = src["mask_id"]
-		obj.z_index        = src["z_index"]
-		obj.solid          = src["solid"]
+		var obj := HLMObject.new()
+		obj.object_id = src["object_id"]
+		obj.object_name = src["object_name"]
+		obj.sprite_id = src["sprite_id"] if src["sprite_id"] >= 0 else -1
+		obj.mask_id = src["mask_id"]
+		obj.z_index = src["z_index"]
+		obj.solid = src["solid"]
 		if not _sprites.has(obj.sprite_id):
 			obj.sprite_id = -1
 		_objects[id] = obj

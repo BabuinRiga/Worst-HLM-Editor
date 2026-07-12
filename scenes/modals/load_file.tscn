@@ -38,7 +38,7 @@ text = "LOAD_FILE"
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
-tab_0/title = "SINGLE"
+tab_0/title = "SINGLES"
 tab_1/title = "CAMPAIGNS"
 
 [node name="Single" type="Tree" parent="Panel/VPanel/Content/TabContainer" index="1" unique_id=1818069995]
@@ -48,7 +48,7 @@ theme_override_constants/icon_max_width = 18
 hide_root = true
 auto_tooltip = false
 metadata/_tab_index = 0
-metadata/_tab_name = "SINGLE"
+metadata/_tab_name = "SINGLES"
 
 [node name="Campaigns" type="Tree" parent="Panel/VPanel/Content/TabContainer" index="2" unique_id=1114550344]
 visible = false

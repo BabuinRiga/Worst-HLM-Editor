@@ -166,3 +166,17 @@ NO,No,Нет
 UPDATE,Update,Обновить
 NEW_UPD_AV,New Update Avaible,Доступно Новое Обновление
 UPDATE_NOTE,"After the update, all settings will be saved",После обновления все настройки будут сохранены
+LOADING_OBJECTS_BIN,"Loading ""objects.bin""","Загрузка ""objects.bin"""
+OBJECT_BIN,bimbimbombom,bimbimbombom
+LOADING_SPRITES_BIN,"Loading ""sprites.bin""","Загрузка ""sprites.bin"""
+SPRITE_BIN,bimbimbombom,bimbimbombom
+LOADING_SOUNDS,Loading sounds,Загрузка звуков
+LOADING_SPRITES,Loading sprites,Загрузка спрайтов
+LOADING_OBJECTS_PATHS,Loading objects path,Загрузка путей для объектов
+LOADING_TILES,Loading tiles,Загрузка тайлов
+LINKING_SPRITES,Linking sprites,Привязка спрайтов
+BUILDING_TILES,Building tiles,Сборка тайлов
+LOADING_OBJECTS,Loading objects,Загрузка объектов
+NO_TEXTURE,No texture,Нет текстуры
+SINGLES,Singles,Одиночные
+CAMPAIGNS,Campaigns,Кампании

@@ -25,14 +25,14 @@ static func parse(raw: Dictionary, emit_progress: bool = true) -> Dictionary:
 		if pos + 64 > bytes.size():
 			break
 		var e := {}
-		e["id"]            = _u32(bytes, pos);                              pos += 4
-		e["size"]          = Vector2i(_u32(bytes, pos), _u32(bytes, pos+4)); pos += 8
-		e["center"]        = Vector2i(_s32(bytes, pos), _s32(bytes, pos+4)); pos += 8
+		e["id"] = _u32(bytes, pos); pos += 4
+		e["size"] = Vector2i(_u32(bytes, pos), _u32(bytes, pos+4)); pos += 8
+		e["center"] = Vector2i(_s32(bytes, pos), _s32(bytes, pos+4)); pos += 8
 		e["mask_x_bounds"] = Vector2i(_s32(bytes, pos), _s32(bytes, pos+4)); pos += 8
 		e["mask_y_bounds"] = Vector2i(_s32(bytes, pos), _s32(bytes, pos+4)); pos += 8
-		e["frame_count"]   = _u32(bytes, pos);                              pos += 4
+		e["frame_count"] = _u32(bytes, pos); pos += 4
 		pos += 16
-		e["name_pos"]      = _u32(bytes, pos);                              pos += 4
+		e["name_pos"] = _u32(bytes, pos); pos += 4
 		pos += 4
 		entries.append(e)
 		

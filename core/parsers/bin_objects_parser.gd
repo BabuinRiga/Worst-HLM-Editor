@@ -17,7 +17,7 @@ static func parse(raw: Dictionary, emit_progress: bool = true) -> Dictionary:
 	var objects := []
 	
 	if emit_progress:
-		AppEvents.load_started.emit("LOADING_OBJECTS")
+		AppEvents.load_started.emit("LOADING_OBJECTS_BIN")
 	
 	var last_tick := Time.get_ticks_msec()
 	
