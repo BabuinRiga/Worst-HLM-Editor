@@ -23,6 +23,9 @@ func _ready() -> void:
 # ------------------------------------------------- API
 
 func load_base() -> void:
+	if !DirAccess.dir_exists_absolute(SettingsData.settings["hm2_path"]):
+		SettingsData._apply_hm2path()
+		return
 	var paths := _collect_base_paths()
 	_base_raw = {}
 	
