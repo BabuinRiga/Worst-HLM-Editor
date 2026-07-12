@@ -2,7 +2,7 @@ extends HTTPRequest
 
 @onready var modal_layer: CanvasLayer = $"../Interface/ModalLayer"
 
-var app_version = ProjectSettings.get_setting("application/config/version", "vTILOX")
+var app_version = ProjectSettings.get_setting("application/config/version", "TILOX")
 const GITHUB_API_URL = "https://api.github.com/repos/BabuinRiga/Worst-HLM-Editor/releases/latest"
 const UPDATE_MODAL_SCENE = preload("uid://4ajnig573320")
 
