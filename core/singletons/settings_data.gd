@@ -25,9 +25,6 @@ func _ready() -> void:
 	_apply_window(settings["fullscreen"])
 	_apply_lang(settings["lang"])
 
-func _process(delta: float) -> void:
-	pass
-
 
 func _save_settings() -> void:
 	var config = ConfigFile.new()
