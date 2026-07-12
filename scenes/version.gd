@@ -2,7 +2,7 @@ extends HTTPRequest
 
 @onready var modal_layer: CanvasLayer = $"../Interface/ModalLayer"
 
-const CURRENT_VERSION = "v0.1.0"
+var app_version = ProjectSettings.get_setting("application/config/version", "vTILOX")
 const GITHUB_API_URL = "https://api.github.com/repos/BabuinRiga/Worst-HLM-Editor/releases/latest"
 const UPDATE_MODAL_SCENE = preload("uid://4ajnig573320")
 
@@ -40,7 +40,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 					image_url = asset.get("url", "") 
 					break
 		
-		if _is_version_newer(latest_version, CURRENT_VERSION):
+		if _is_version_newer(latest_version, app_version):
 			if image_url != "":
 				_download_image_and_show_modal(latest_version, release_url, changelog, image_url)
 			else:
