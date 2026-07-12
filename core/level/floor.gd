@@ -4,9 +4,9 @@ extends Node2D
 @onready var top_bar = get_tree().get_first_node_in_group("TopBar") as TopBar
 @onready var editor_level = get_tree().get_first_node_in_group("EditorLevel") as EditorLevel
 
-var index:              int  = 0
-var light_overlays:     Array[int] = []
-var static_objects:     Array[int] = []
+var index: int  = 0
+var light_overlays: Array[int] = []
+var static_objects: Array[int] = []
 var previous_floor: Floor = null
 
 var cutscene_files: Dictionary = {}
@@ -71,15 +71,15 @@ func _load_tls(file: FileAccess) -> void:
 			break
 		
 		var tile_id := int(row[0])
-		var tile_x  := int(row[1])
-		var tile_y  := int(row[2])
-		var x       := int(row[3])
-		var y       := int(row[4])
-		var depth   := int(row[5])
+		var tile_x := int(row[1])
+		var tile_y := int(row[2])
+		var x := int(row[3])
+		var y := int(row[4])
+		var depth := int(row[5])
 		
 		var spr := TileSprite.new(tile_id, tile_x, tile_y, depth)
 		spr.global_position = Vector2(x, y)
-		spr.level           = index
+		spr.level = index
 		add_child(spr)
 
 func _load_wll(file: FileAccess) -> void:
@@ -89,8 +89,8 @@ func _load_wll(file: FileAccess) -> void:
 			break
 		
 		var object_id := int(row[0])
-		var x         := float(row[1])
-		var y         := float(row[2])
+		var x := float(row[1])
+		var y := float(row[2])
 		var sprite_id := int(row[3])
 		
 		var spr = WallSprite.new(object_id, sprite_id)
@@ -142,15 +142,15 @@ func _spawn_object_sprite(
 	parent_id: int
 ) -> ObjectSprite:
 	var dup := obj.duplicate() as HLMObject
-	dup.sprite_id  = sprite_id
+	dup.sprite_id = sprite_id
 	var spr: ObjectSprite
 	if obj.object_id == NPCObjectSprite.NPCobjectID:
 		spr = NPCObjectSprite.new(dup, frame, _get_mode_for_object(obj.object_id, parent_id))
 	else:
 		spr = ObjectSprite.new(dup, frame, _get_mode_for_object(obj.object_id, parent_id))
-	spr.global_position   = pos
-	spr.rotation_degrees  = angle_deg
-	spr.level             = index
+	spr.global_position = pos
+	spr.rotation_degrees = angle_deg
+	spr.level = index
 	add_child(spr)
 	return spr
 
@@ -262,7 +262,7 @@ func _parse_play_entry_campaign(object_id: int, row: Array[String]) -> void:
 			if object_id in DoorSprite.object_ids:
 				if row.size() >= 6:
 					var spr := DoorSprite.new(object_id, int(row[4]), int(row[5]))
-					spr.level    = index
+					spr.level = index
 					spr.position = Vector2(float(row[0]), float(row[1]))
 					add_child(spr)
 				return
