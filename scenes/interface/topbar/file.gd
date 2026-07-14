@@ -40,9 +40,20 @@ func _create_file() -> void:
 		load_untitled.call()
 
 func _load_file() -> void:
+	var load_level = func(info: LevelInfo):
+		if UndoRedoManager.is_dirty():
+			const CONFIRM_MODAL = preload("uid://cb62o12ru8h5b")
+			var modal = CONFIRM_MODAL.instantiate()
+			modal.confirmed.connect(func():
+				editor_level.load_level(info)
+			)
+			modal_layer.add_child(modal)
+		else:
+			editor_level.load_level(info)
+	
 	var modal = LOAD_FILE.instantiate()
 	modal.level_selected.connect(func(info: LevelInfo):
-		editor_level.load_level(info)
+		load_level.call(info)
 	)
 	modal_layer.add_child(modal)
 
