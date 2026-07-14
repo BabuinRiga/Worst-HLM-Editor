@@ -28,7 +28,16 @@ func _on_file_pressed(id: int) -> void:
 			pass
 
 func _create_file() -> void:
-	editor_level._load_resource_level("res://resources/levels/untitled")
+	var load_untitled = func(): editor_level._load_resource_level("res://resources/levels/untitled")
+	if UndoRedoManager.is_dirty():
+		const CONFIRM_MODAL = preload("uid://cb62o12ru8h5b")
+		var modal = CONFIRM_MODAL.instantiate()
+		modal.confirmed.connect(func():
+			load_untitled.call()
+		)
+		modal_layer.add_child(modal)
+	else:
+		load_untitled.call()
 
 func _load_file() -> void:
 	var modal = LOAD_FILE.instantiate()
@@ -38,6 +47,7 @@ func _load_file() -> void:
 	modal_layer.add_child(modal)
 
 func _save_file() -> void:
+	if modal_layer.get_child_count() > 1: return
 	editor_level.save_level()
 
 func _open_file_path() -> void:

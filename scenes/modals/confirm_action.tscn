@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cb62o12ru8h5b"]
+
+[ext_resource type="PackedScene" uid="uid://1rppebwy16bf" path="res://scenes/modals/modal_window.tscn" id="1_cgnpb"]
+[ext_resource type="Script" uid="uid://u3gqbdfahecm" path="res://scenes/modals/confirm_action.gd" id="2_pyvo5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyvo5"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.29411766)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbtb4"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.11764706)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ConfirmAction" unique_id=1170968940 instance=ExtResource("1_cgnpb")]
+script = ExtResource("2_pyvo5")
+
+[node name="Panel" parent="." index="0" unique_id=1330653976]
+custom_minimum_size = Vector2(300, 0)
+
+[node name="Label" parent="Panel/VPanel/Title" parent_id_path=PackedInt32Array(399364739) index="0" unique_id=999755027]
+text = "CONFIRM"
+
+[node name="Content" parent="Panel/VPanel" parent_id_path=PackedInt32Array(1186534741) index="1" unique_id=998380618]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="RichTextLabel" parent="Panel/VPanel/Content" index="0" unique_id=688693842]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.6255974, 0.625597, 0.6255971, 1)
+theme_override_font_sizes/normal_font_size = 14
+text = "CONFIRM_ACTION"
+fit_content = true
+autowrap_mode = 2
+
+[node name="Yes" type="Button" parent="Panel/VPanel/MarginPanels/Panels" parent_id_path=PackedInt32Array(1023914106) index="0" unique_id=1894410030]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pyvo5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lbtb4")
+text = "YES"
+
+[node name="Cancel" parent="Panel/VPanel/MarginPanels/Panels" parent_id_path=PackedInt32Array(1023914106) index="1" unique_id=1008181168]
+text = "NO"

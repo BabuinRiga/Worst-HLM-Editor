@@ -8,8 +8,11 @@ class_name TopBar
 @onready var edit: PopupMenu = $MarginContainer/HBoxLeft/MenuBar/Edit
 @onready var view: View = $MarginContainer/HBoxLeft/MenuBar/View
 @onready var settings: Settings = $MarginContainer/HBoxLeft/MenuBar/Settings
+@onready var quit: Button = $MarginContainer/HBoxRight/Quit
 
 @onready var editor_level = get_tree().get_first_node_in_group("EditorLevel") as EditorLevel
+
+var modal_layer: CanvasLayer
 
 # ------------------------------------------------- UndoRedo
 
@@ -17,13 +20,14 @@ var _undo_held := false
 var _redo_held := false
 var _hold_timer := 0.0
 var _repeat_timer := 0.0
-const HOLD_DELAY    := 0.5
-const REPEAT_RATE   := 0.05
+const HOLD_DELAY := 0.5
+const REPEAT_RATE := 0.05
 
 # -------------------------------------------------
 
 func _ready() -> void:
 	_add_shortcuts()
+	modal_layer = get_tree().current_scene.get_node("Interface/ModalLayer")
 	UndoRedoManager.history_changed.connect(_on_commit)
 
 func _process(delta: float) -> void:
@@ -37,6 +41,7 @@ func _process(delta: float) -> void:
 			_repeat_timer += delta
 			if _repeat_timer >= REPEAT_RATE:
 				_repeat_timer = 0.0
+				if modal_layer.get_child_count() > 1: return
 				UndoRedoManager.undo()
 				
 	elif _redo_held:
@@ -49,6 +54,7 @@ func _process(delta: float) -> void:
 			_repeat_timer += delta
 			if _repeat_timer >= REPEAT_RATE:
 				_repeat_timer = 0.0
+				if modal_layer.get_child_count() > 1: return
 				UndoRedoManager.redo()
 
 func _input(event: InputEvent) -> void:
@@ -60,6 +66,7 @@ func _input(event: InputEvent) -> void:
 			_redo_held = true
 			_hold_timer = 0.0
 			_repeat_timer = 0.0
+			if modal_layer.get_child_count() > 1: return
 			UndoRedoManager.redo()
 			get_viewport().set_input_as_handled()
 		elif not event.pressed:
@@ -72,6 +79,7 @@ func _input(event: InputEvent) -> void:
 			_undo_held = true
 			_hold_timer = 0.0
 			_repeat_timer = 0.0
+			if modal_layer.get_child_count() > 1: return
 			UndoRedoManager.undo()
 			get_viewport().set_input_as_handled()
 		elif not event.pressed:
@@ -106,3 +114,16 @@ func _on_commit() -> void:
 
 func _update_name() -> void:
 	level_name.text = editor_level.level_info.name if editor_level.level_info.exist else "Worst HLM Editor"
+
+# ----------------------------------------------------------
+
+func _on_quit_pressed() -> void:
+	if UndoRedoManager.is_dirty():
+		const CONFIRM_MODAL = preload("uid://cb62o12ru8h5b")
+		var modal = CONFIRM_MODAL.instantiate()
+		modal.confirmed.connect(func():
+			get_tree().quit()
+		)
+		modal_layer.add_child(modal)
+	else:
+		get_tree().quit()

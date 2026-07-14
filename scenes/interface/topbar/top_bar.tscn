@@ -42,7 +42,7 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 5
 alignment = 2
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxRight" unique_id=292380384]
+[node name="Quit" type="Button" parent="MarginContainer/HBoxRight" unique_id=292380384]
 layout_mode = 2
 text = "QUIT"
 
@@ -145,3 +145,5 @@ size = Vector2i(100, 143)
 [node name="Settings" type="PopupMenu" parent="MarginContainer/HBoxLeft/MenuBar" unique_id=141756665]
 title = "SETTINGS"
 script = ExtResource("3_71wfb")
+
+[connection signal="pressed" from="MarginContainer/HBoxRight/Quit" to="." method="_on_quit_pressed"]

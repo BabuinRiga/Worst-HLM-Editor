@@ -1,13 +1,13 @@
 extends ModalWindow
 
-signal save_non_exist_level
-
-@onready var editor_level = get_tree().get_first_node_in_group("EditorLevel") as EditorLevel
 @onready var yes: Button = $Panel/VPanel/MarginPanels/Panels/Yes
+
+signal confirmed
+
 
 func _ready() -> void:
 	yes.pressed.connect(_on_yes_pressed)
 
 func _on_yes_pressed() -> void:
-	save_non_exist_level.emit()
+	confirmed.emit()
 	close()

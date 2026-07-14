@@ -5,7 +5,7 @@ FILE,File,Файл
 EDIT,Edit,Изменить
 VIEW,View,Вид
 SETTINGS,Settings,Настройки
-QUIT,Exit,Выйти
+QUIT,Quit,Выйти
 FULLSCREEN,Fullscreen mode,Полноэкранный режим
 FLOOR,Floor,Этаж
 OBJECT_SELECT,Selected objects,Выбранные объекты
@@ -194,3 +194,5 @@ The lower the depth value, the higher the tile is rendered on the screen. Low va
 If the depth is set to -99 or lower, the tile size is automatically reduced from 16x16px to 8x8px (this is the default depth used for walls corners).","По умолчанию для тайлов в стандартном редакторе установлено значение глубины 1001 (для тайлов типа Litter и Edges - 1000).
 Чем ниже значение глубины, тем выше тайл располагается в визуальном слое. Низкие значения могут сделать тайл выше игрока.
 При установке значения -99 или ниже размер тайла автоматически уменьшается с 16x16px до 8x8px (это стандартное значение глубины для углов у стен)."
+CONFIRM,Confirmation,Подтверждение
+CONFIRM_ACTION,You have unsaved changes. Continue?,У вас остались несохраненные изменения. Продолжить?

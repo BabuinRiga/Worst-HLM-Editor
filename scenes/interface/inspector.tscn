@@ -137,6 +137,7 @@ content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 0)
 
 [node name="Inspector" type="PanelContainer" unique_id=1568941226]
+custom_minimum_size = Vector2(370, 0)
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
