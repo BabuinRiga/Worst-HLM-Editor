@@ -4,10 +4,12 @@
 [ext_resource type="Script" uid="uid://c34equikg5rdf" path="res://scenes/modals/loading_window.gd" id="2_k437n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5frp"]
-bg_color = Color(0, 0, 0, 0.7)
+bg_color = Color(0, 0, 0, 0.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5bgr"]
 bg_color = Color(0.099985994, 0.099985994, 0.09998598, 1)
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 15
 
 [node name="LoadingWindow" unique_id=1170968940 instance=ExtResource("1_oi2y5")]
 theme_override_styles/panel = SubResource("StyleBoxFlat_b5frp")

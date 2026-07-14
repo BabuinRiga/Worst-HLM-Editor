@@ -154,6 +154,7 @@ func _on_tile_prop_check_toggled(toggled_on: bool) -> void:
 	_refresh_tile_tools()
 
 func _on_depth_spin_box_value_changed(value: float) -> void:
+	ToolManager.set_tool(ToolManager.Tool.SELECT)
 	_refresh_tile_tools()
 
 func _refresh_tile_tools() -> void:

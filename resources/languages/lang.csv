@@ -196,3 +196,7 @@ If the depth is set to -99 or lower, the tile size is automatically reduced from
 При установке значения -99 или ниже размер тайла автоматически уменьшается с 16x16px до 8x8px (это стандартное значение глубины для углов у стен)."
 CONFIRM,Confirmation,Подтверждение
 CONFIRM_ACTION,You have unsaved changes. Continue?,У вас остались несохраненные изменения. Продолжить?
+ALL_MASK,Default (Choice mask),По умолчанию (Выбор маски)
+NO_MASK,No mask,Без маски
+WEAP_SEL,Weapon select,Выбор оружия
+ROB_MASK,Robber mask,Маска грабителя
