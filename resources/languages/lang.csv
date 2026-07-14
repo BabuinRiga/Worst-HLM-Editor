@@ -200,3 +200,113 @@ ALL_MASK,Default (Choice mask),По умолчанию (Выбор маски)
 NO_MASK,No mask,Без маски
 WEAP_SEL,Weapon select,Выбор оружия
 ROB_MASK,Robber mask,Маска грабителя
+HELP,Help,Справка
+ABOUT,About,О программе
+CONTROL,Control guide,Управление
+TOOLS,Tools,Инструменты
+T_SELECT,T. Select,И. Выделения
+T_PLACE,T. Place,И. Постановки
+T_TILES,T. Tiles,И. Тайлов
+OTHER,Other,Другое
+TOOLS_CONTROL,"[center][b]Tools[/b][/center]
+
+By default, when the program is launched, the [b]Selection Tool[/b] is active. Specialized tools are used to create and place different objects. For example, to place elements like Objects, Enemies, Players, Cars, and Misc, the [b]Placement Tool[/b] is used.
+
+Most tools are activated automatically (for instance, for the Tiles Tool, it is enough to select the desired tile, and for the Place Tool, to select an object). However, the Selection Tool works differently: to return to it, you must either manually disable the currently active tool or simply switch tabs on the right panel - this will automatically reset the current tool and return you to Selection.","[center][b]Инструменты[/b][/center]
+
+По умолчанию при запуске программы используется инструмент [b]Выделения[/b]. Для установки каждого типа объекта используются разные инструменты. Такие вещи как Объекты, Враги, Игроки, Машины и Прочее используют инструмент Постановки.
+
+В то время как для всех инструментов используется отдельный переключатель (для Инструмента Тайлов достаточно выбрать тайл, а для Инструмента Постановки достаточно выбрать объект), для Инструмента Выделения нужно либо отключить текущий инструмент, либо переключить вкладку в правой панеле, тем самым также отключив текущий инструмент и переключиться на Инструмент Выделения."
+SELECT_CONTROL,"[center][b]Selection Tool[/b][/center]
+
+[u]LMB[/u] - Selects an element. Holding and dragging creates a selection box to select multiple elements at once.
+[u]Shift+LMB[/u] - Selects an element if it is not selected, or deselects it if it is already selected, without clearing the selection from other objects.
+[u]Alt+LMB[/u] - Works the same as LMB, but the element is selected only after releasing LMB, allowing you, for example, to select multiple tiles at once.
+[u]Ctrl+LMB[/u] - Allows you to move the selected elements. Holding Shift forces elements to snap to the grid specified in ""[i]View/Grid[/i]"".
+[u]Ctrl+Wheel[/u] - Rotates elements, including multiple ones at once (does not work correctly). Not all element types are supported.
+[u]RMB[/u] - Rotates elements by 90 degrees, including multiple ones at once (does not work correctly). Not all element types are supported.
+[u]Delete[/u] - Deletes the selected elements on the current floor.
+
+Selecting an element depends on which tab is open in the right panel. For example, if the Objects tab is selected, you will only be able to select Objects (without affecting, say, Enemies).
+
+Once an element is selected, its parameters list will appear in the right panel. Parameters will differ depending on the element type, but coordinates remain the main parameter for all of them.
+If multiple elements are selected at once, the parameter values will depend on whether the elements are of the same type and whether the values for the selected elements are identical. If they do not match in the latter case, the parameter value will visually disappear. However, you can still enter your own value, which will make that parameter value the same for all selected elements.","[center][b]Инструмент Выделения[/b][/center]
+
+[u]ЛКМ[/u] - Выбор элемента. Зажатие создаст зону для выделения нескольких элементов сразу.
+[u]Shift+ЛКМ[/u] - Выбор если элемент не выделен, или снятие выделение если элемент уже выбран, при этом выделение с предыдущих объектов не снимается.
+[u]Alt+ЛКМ[/u] - Тоже самое что и нажатие ЛКМ, однако элемент выбирается только после отпускания ЛКМ, позволяя, например, выбрать сразу несколько тайлов.
+[u]Ctrl+ЛКМ[/u] - Позволяет двигать выделенные элементы. Зажатие Shift заставит элементы двигаться по сетке указанной в ""[i]Вид/Сетка[/i]"".
+[u]Ctrl+Колесико[/u] - Поворот элементов, в том числе сразу нескольких (работает некорректно). Не все типы элементов поддерживаются.
+[u]ПКМ[/u] - Поворот элементов на 90 градусов, в том числе сразу нескольких (работает некорректно). Не все типы элементов поддерживаются.
+[u]Delete[/u] - Удаляет выделенные элементы на этаже.
+
+Выбор элемента зависит от того какая вкладка открыта в правой панеле. Например, если выбрана вкладка Объекты, вы сможете выбирать только Объекты (не трогая при этом тех же Врагов).
+
+После выбора элемента, в правой панеле появится список параметров этого объекта. В зависимости от типа элемента параметры будут отличаться, однако основным параметров для всех остаются их координаты.
+Если выбрано сразу несколько элементов, значение параметров будет зависить от того являются ли элементы одинаковыми по типу, и являются ли значения для выделенных элементов одинаковыми. В случае несоответствия во втором варианте значения параметра исчезнет визуально. Тем не менее вы можете вписать туда свое значение, что сделает значение параметра одинаковым для всех."
+PLACE_CONTROL,"[center][b]Place Tool[/b][/center]
+
+[u]LMB[/u] - Place an item.
+[u]RMB[/u] - Delete an item.
+[u]Wheel[/u] - Change the item's frame.
+[u]Shift[/u] - Grid snap. Depends on the value in [i]""View/Grid""[/i].
+[u]Shift+RMB[/u] - Rotate the item by 90 degrees.
+[u]Shift+Wheel[/u] - Rotate the item by 2 degrees.
+[u]Ctrl+Wheel[/u] - Rotate the item by 1 degree.
+[u]Ctrl+LMB[/u] - Allows you to grab the item under the cursor. It can then be both moved and rotated using the keys listed above.","[center][b]Инструмент Постановки[/b][/center]
+
+[u]ЛКМ[/u] - Поставить предмет.
+[u]ПКМ[/u] - Удалить предмет.
+[u]Колесико[/u] - Изменить кадр предмета.
+[u]Shift[/u] - Привязка к сетке. Зависит от значения в [i]""Вид/Сетка""[/i].
+[u]Shift+ПКМ[/u] - Поворот предмета на 90 градусов.
+[u]Shift+Колесико[/u] - Поворот предмет на 2 градуса.
+[u]Ctrl+Колесико[/u] - Поворот предмета на 1 градус.
+[u]Ctrl+ЛКМ[/u] - Позволяет взять предмет под курсором. Можно как двигать так и поворачивать клавишами указанными выше."
+CLOSE,Close,Закрыть
+TILES_CONTROL,"[center][b]Tiles Tool[/b][/center]
+
+[u]LMB[/u] - Place a tile. Holding and dragging will place tiles along the path of movement.
+[u]Shift+LMB[/u] - Holding allows you to select a rectangular area that will be filled with the selected tiles upon releasing LMB.
+[u]RMB[/u] - Erase a tile. Holding and dragging will erase tiles along the path of movement.
+[u]Shift+RMB[/u] - Holding allows you to select a rectangular area that will delete the highlighted tiles upon releasing RMB.
+[u]Ctrl[/u] - Disables grid snapping.
+[u]Alt[/u] - Toggles the ""[i]Merge tiles[/i]"" option. See details below.
+[u]Alt+RMB[/u] - Eyedropper/Copy tile. The tile depth is also copied.
+
+""[i]Merge tiles[/i]"" - Allows you to place tiles while automatically deleting any tiles underneath them. Disabling this option allows you to stack tiles on top of each other. [b]Be careful not to let tiles created with this option turned off completely cover the tiles underneath them (if there are any)[/b].
+""[i]Tile depth[/i]"" - A parameter that affects the rendering order of the tile in the visual layer. Lower values make sprites render on top. If the depth is <= -99, the tile will start rendering in 8x8px.
+""[i]Extra tiles[/i]"" - Adds additional tile sets. These are either not used by the game in standard situations or not used at all. Their main advantage lies in their dimensions and their absence in the editor by default, allowing you to redraw them using tools like HLMWadEditor.","[center][b]Инструмент Тайлов[/b][/center]
+
+[u]ЛКМ[/u] - Поставить тайл. Зажатие приведет к созданию тайлов в указанном направлении.
+[u]Shift+ЛКМ[/u] - При зажатии позволяет выбрать зону в форме квадрата, которая после отпускания ЛКМ заполнится выбранными тайлами.
+[u]ПКМ[/u] - Стереть тайл. Зажатие приведет к удалению тайлов в указанном направлении.
+[u]Shift+ЛКМ[/u] - При зажатии позволяет выбрать зону в форме квадрата, которая после отпускания ПКМ удалит выделенные тайлы.
+[u]Ctrl[/u] - Выключение привязки к сетке.
+[u]Alt[/u] - Переключение опции ""[i]Замена тайлов[/i]"". Подробнее ниже.
+[u]Alt+ПКМ[/u] - Скопировать тайл. Глубина тайла также копируется.
+
+""[i]Замена тайлов[/i]"" - Позволяет устанавливать тайлы автоматически удаляя те, что находятся под ним. Отключение опции позволит устанавливать тайлы поверх других тайлов. [b]Будьте внимательны с тем чтобы тайлы созданные при отключенной опции не перекрывали полностью тайлы под ним (если они есть)[/b].
+""[i]Глубина тайла[/i]"" - Параметр который влияет на отрисовку тайла в визуальном слое. Параметры ниже делают спрайты выше. Если глубина <= -99 тайл начинает отрисовываться в 8х8px.
+""[i]Доп. тайлы[/i]"" - Добавляет дополнительные наборы тайлов. Их отличие в том что они не используются игрой в обыденных ситуациях, либо вовсе не используются. Их главное преимущество заключается в размерах и отсутствием в редакторе по умолчанию, что позволяет перерисовать их с помощью, например, HLMWadEditor."
+OTHER_CONTROL,"[center][b]Other[/b][/center]
+
+Here we will cover features and tool controls that do not require a separate tab.
+
+Most tools use [u]Shift[/u] for grid snapping. The grid can be configured in [i]""View/Grid""[/i]. The same applies to [u]Ctrl[/u] for disabling grid snapping.
+
+[center]Walls/Doors[/center]
+[u]Shift+RMB[/u] - Change direction.
+
+[center]Transitions/Elevators[/center]
+[u]Ctrl (Offset step)[/u] - Allows you to automatically set the offset (where the player will end up after transitioning) to 0.","[center][b]Другое[/b][/center]
+
+Здесь будут расписаны вещи и управление инструментов которые не требуют отдельной вкладки.
+
+Большая часть инструментов использует [u]Shift[/u] для привязки к сетке. Сетку можно настроить в [i]""Вид/Сетка""[/i]. Тоже самое касается и [u]Ctrl[/u] для отключения привязки к сетке.
+
+[center]Стены/Двери[/center]
+[u]Shift+ПКМ[/u] - Изменить направление.
+
+[center]Переходы/Лифты[/center]
+[u]Ctrl (Этап установки оффсета)[/u] - Позволяет установить оффсет (куда попадет игрок после перехода) автоматически на значение 0."

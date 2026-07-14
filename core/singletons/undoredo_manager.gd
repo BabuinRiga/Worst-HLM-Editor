@@ -85,6 +85,13 @@ func mark_saved() -> void:
 	_dirty = false
 	history_changed.emit()
 
+func clear_history() -> void:
+	_undo_stack.clear()
+	_redo_stack.clear()
+	_saved_index = 0
+	_dirty = false
+	history_changed.emit()
+
 func is_dirty() -> bool: return _dirty
 func can_undo() -> bool: return not _undo_stack.is_empty()
 func can_redo() -> bool: return not _redo_stack.is_empty()

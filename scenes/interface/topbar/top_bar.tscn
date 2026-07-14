@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://clmkbl0m8f0k0" path="res://resources/textures/icons/Undo.svg" id="4_qxdj6"]
 [ext_resource type="Texture2D" uid="uid://cmk0sjrxetc2g" path="res://resources/textures/icons/Redo.svg" id="5_s81kx"]
 [ext_resource type="Script" uid="uid://dvra0httr0ht8" path="res://scenes/interface/topbar/view.gd" id="7_s81kx"]
+[ext_resource type="Script" uid="uid://bxuxoul53uw6" path="res://scenes/interface/topbar/help.gd" id="9_hyhhl"]
+[ext_resource type="Texture2D" uid="uid://03jg2uqhyytk" path="res://resources/textures/icons/Open.svg" id="9_yo7tc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyn48"]
 bg_color = Color(0.1148968, 0.11489681, 0.11489678, 1)
@@ -145,5 +147,18 @@ size = Vector2i(100, 143)
 [node name="Settings" type="PopupMenu" parent="MarginContainer/HBoxLeft/MenuBar" unique_id=141756665]
 title = "SETTINGS"
 script = ExtResource("3_71wfb")
+
+[node name="Help" type="PopupMenu" parent="MarginContainer/HBoxLeft/MenuBar" unique_id=1071349401]
+oversampling_override = 1.0
+title = "HELP"
+size = Vector2i(116, 100)
+theme_override_constants/icon_max_width = 20
+item_count = 2
+item_0/text = "ABOUT"
+item_0/icon = ExtResource("9_yo7tc")
+item_0/id = 0
+item_1/text = "CONTROL"
+item_1/id = 1
+script = ExtResource("9_hyhhl")
 
 [connection signal="pressed" from="MarginContainer/HBoxRight/Quit" to="." method="_on_quit_pressed"]

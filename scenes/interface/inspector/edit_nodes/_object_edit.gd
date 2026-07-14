@@ -14,6 +14,7 @@ const OBJ_IDS = preload("uid://cu5yywhit8efh")
 const OBJ_COORD = preload("uid://tlwafnkrjgrg")
 const DOOR_PRM = preload("uid://bngpcqfwj5w6c")
 const TRANSITION_PRM = preload("uid://jrram36rfvkb")
+const TLS_PRM = preload("uid://dntycq2vebe76")
 
 # ------------------------------
 
@@ -66,6 +67,12 @@ func _rebuild_nodes() -> void:
 		var trans_prm: ObjEd_Transition = TRANSITION_PRM.instantiate()
 		trans_prm._setup(_sprites)
 		edit_nodes.add_child(trans_prm)
+	# --- Тайлы
+	var is_all_tiles := _sprites.all(func(s): return s is TileSprite)
+	if is_all_tiles:
+		var tls_prm: ObjEd_Tls = TLS_PRM.instantiate()
+		tls_prm._setup(_sprites)
+		edit_nodes.add_child(tls_prm)
 	# --- Координаты
 	#var first_class = _sprites[0].get_script()
 	#if _sprites.all(func(s): return s.get_script() == first_class):

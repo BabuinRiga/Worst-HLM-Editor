@@ -67,7 +67,7 @@ func load_level(info: LevelInfo) -> void:
 	switch_floor(0)
 	level_loaded.emit()
 	level_updated.emit()
-	UndoRedoManager.mark_saved()
+	UndoRedoManager.clear_history()
 
 func save_level() -> void:
 	if !level_info.exist:

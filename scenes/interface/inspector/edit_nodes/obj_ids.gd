@@ -4,19 +4,19 @@ class_name ObjEd_Ids
 @onready var sprite_label: Label = $MarginContainer/VBoxContainer/Labels/SpriteIds
 @onready var object_label: Label = $MarginContainer/VBoxContainer/Labels/ObjectIds
 
-@onready var sprite_input:     LineEdit       = $MarginContainer/VBoxContainer/Inputs/SpriteInput
-@onready var object_input:     LineEdit       = $MarginContainer/VBoxContainer/Inputs/ObjectInput
-@onready var frame_container:  PanelContainer = $MarginContainer/VBoxContainer/FrameContainer
-@onready var frame_input:      SpinBox        = $MarginContainer/VBoxContainer/FrameContainer/VBox/FrameInput
-@onready var anim_container:   VBoxContainer  = $MarginContainer/VBoxContainer/AnimContainer
-@onready var anim_input:       SpinBox        = $MarginContainer/VBoxContainer/AnimContainer/HBox/AnimInput
-@onready var anim_slider:      HSlider        = $MarginContainer/VBoxContainer/AnimContainer/AnimSlider
+@onready var sprite_input: LineEdit = $MarginContainer/VBoxContainer/Inputs/SpriteInput
+@onready var object_input: LineEdit = $MarginContainer/VBoxContainer/Inputs/ObjectInput
+@onready var frame_container: PanelContainer = $MarginContainer/VBoxContainer/FrameContainer
+@onready var frame_input: SpinBox = $MarginContainer/VBoxContainer/FrameContainer/VBox/FrameInput
+@onready var anim_container: VBoxContainer = $MarginContainer/VBoxContainer/AnimContainer
+@onready var anim_input: SpinBox = $MarginContainer/VBoxContainer/AnimContainer/HBox/AnimInput
+@onready var anim_slider: HSlider = $MarginContainer/VBoxContainer/AnimContainer/AnimSlider
 
-var _sprites:   Array[BaseSprite] = []
-var _is_npc:    bool = false
+var _sprites: Array[BaseSprite] = []
+var _is_npc: bool = false
 var _is_wall_or_door: bool = false
 var _anim_old_values: Array = []
-var _updating:  bool = false
+var _updating: bool = false
 
 # -------------------------------------------------
 
@@ -51,14 +51,14 @@ func _on_history_changed() -> void:
 func _update() -> void:
 	if _is_wall_or_door:
 		frame_container.visible = false
-		anim_container.visible  = false
-		object_label.visible    = false
-		object_input.visible    = false
+		anim_container.visible = false
+		object_label.visible = false
+		object_input.visible = false
 	else:
 		frame_container.visible = not _is_npc
-		anim_container.visible  = _is_npc
-		object_label.visible    = true
-		object_input.visible    = true
+		anim_container.visible = _is_npc
+		object_label.visible = true
+		object_input.visible = true
 	if _sprites.is_empty():
 		return
 	
@@ -85,7 +85,7 @@ func _update() -> void:
 		if _is_npc:
 			if all_same.call(func(s): return s.object_frame):
 				var speed: float = _sprites[0].object_frame
-				anim_input.value  = speed
+				anim_input.value = speed
 				anim_slider.value = speed
 			else:
 				anim_input.value  = 0.0
@@ -245,16 +245,16 @@ func _emit_changed(object_id, sprite_id, frame) -> void:
 		var final_fr  = frame     if frame     != null else old_spr.object_frame
 		
 		snapshot.append({
-			"old_node":    old_spr,
-			"new_node":    new_spr,
-			"parent":      old_spr.get_parent(),
-			"index":       old_spr.get_index(),
+			"old_node": old_spr,
+			"new_node": new_spr,
+			"parent": old_spr.get_parent(),
+			"index": old_spr.get_index(),
 			
-			"do_method":   &"set_ids",
-			"do_args":     [final_oid, final_sid, final_fr],
+			"do_method": &"set_ids",
+			"do_args": [final_oid, final_sid, final_fr],
 			
 			"undo_method": &"set_ids",
-			"undo_args":   [old_spr.object.object_id, old_spr.object.sprite_id, old_spr.object_frame]
+			"undo_args": [old_spr.object.object_id, old_spr.object.sprite_id, old_spr.object_frame]
 		})
 	
 	UndoRedoManager.commit(
