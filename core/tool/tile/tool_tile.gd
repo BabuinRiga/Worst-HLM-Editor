@@ -96,12 +96,14 @@ func _rebuild_preview(is_rect: bool, rect: Rect2 = Rect2()) -> void:
 	for child in _preview_root.get_children():
 		child.queue_free()
 	
-	var step := float(_tile.size)
+	var t_size := _get_tile_size()
+	var step := float(t_size)
 	var step_base := 1.0 if _pixel_mode else step
 	
 	if not is_rect:
 		for cell in _cells:
-			var spr := TileSprite.new(_tile.id, cell.x * _tile.size, cell.y * _tile.size, _tile.depth)
+			var current_depth = _get_current_depth()
+			var spr := TileSprite.new(_tile.id, cell.x * t_size, cell.y * t_size, current_depth)
 			spr.position = Vector2(cell - _base_cell) * step
 			_preview_root.add_child(spr)
 	else:
@@ -126,7 +128,8 @@ func _rebuild_preview(is_rect: bool, rect: Rect2 = Rect2()) -> void:
 				
 				for cell in _cells:
 					var offset = Vector2(cell - _base_cell) * step
-					var spr := TileSprite.new(_tile.id, cell.x * _tile.size, cell.y * _tile.size, _tile.depth)
+					var current_depth = _get_current_depth()
+					var spr := TileSprite.new(_tile.id, cell.x * t_size, cell.y * t_size, current_depth)
 					spr.position = snapped + offset
 					_preview_root.add_child(spr)
 					
@@ -147,7 +150,7 @@ func _update_preview_pos() -> void:
 		return
 		
 	_pixel_mode = Input.is_key_pressed(KEY_CTRL)
-	var step := 1.0 if _pixel_mode else float(_tile.size)
+	var step := 1.0 if _pixel_mode else float(_get_tile_size())
 	var pos  := _world_pos()
 	
 	if _paint_dragging and _paint_rect:
@@ -185,21 +188,38 @@ func _pick_tile(hit: TileSprite) -> void:
 	if found_tile == null:
 		return
 	
-	var cell := Vector2i(hit.tile_x, hit.tile_y) / found_tile.size
-	init(found_tile, [cell])
-
 	var tiles_tab = level_tab.tiles as TilesTab
 	if tiles_tab == null:
 		return
-	
+		
 	var protected_id = Defs._tiles[-1].id if Defs._tiles.size() > 0 else -1
 	
 	if found_tile.id == protected_id:
 		tiles_tab.c_picker.set_tile(found_tile)
+	else:
+		tiles_tab.select_tile_by_id(found_tile.id)
+	
+	if hit.depth != found_tile.depth:
+		tiles_tab.tile_prop_check.button_pressed = true
+		tiles_tab.tile_prop_check.toggled.emit(true)
+		
+		tiles_tab.depth_spin_box.value = hit.depth
+		tiles_tab.depth_spin_box.value_changed.emit(hit.depth)
+	else:
+		tiles_tab.tile_prop_check.button_pressed = false
+		tiles_tab.tile_prop_check.toggled.emit(false)
+		
+		tiles_tab.depth_spin_box.value = found_tile.depth
+		tiles_tab.depth_spin_box.value_changed.emit(found_tile.depth)
+	
+	var cell := Vector2i(hit.tile_x, hit.tile_y) / _get_tile_size(found_tile)
+	
+	init(found_tile, [cell])
+	
+	if found_tile.id == protected_id:
 		tiles_tab.c_picker.select_cell(cell)
 		tiles_tab.tile_picker.clear_selection()
 	else:
-		tiles_tab.select_tile_by_id(found_tile.id)
 		tiles_tab.tile_picker.select_cell(cell)
 		tiles_tab.c_picker.clear_selection()
 
@@ -302,14 +322,15 @@ func _paint_at(pos: Vector2) -> void:
 	if floor_node == null:
 		return
 	
-	var step    := 1.0 if _pixel_mode else float(_tile.size)
+	var t_size := _get_tile_size()
+	var step := 1.0 if _pixel_mode else float(t_size)
 	var snapped := (pos / step).floor() * step
 	
 	var protected_id = Defs._tiles[-1].id if Defs._tiles.size() > 0 else -1
-	var current_id   = _tile.id
+	var current_id = _tile.id
 	
 	for cell in _cells:
-		var offset   := Vector2(cell - _base_cell) * float(_tile.size)
+		var offset := Vector2(cell - _base_cell) * float(t_size)
 		var tile_pos := snapped + offset
 		
 		var existing_tiles = _get_tiles_at(floor_node, tile_pos)
@@ -322,9 +343,9 @@ func _paint_at(pos: Vector2) -> void:
 			if current_id == protected_id:
 				if ext_id == protected_id:
 					replaced_data.append({
-						"node":   ext_tile,
+						"node": ext_tile,
 						"parent": ext_tile.get_parent(),
-						"index":  ext_tile.get_index()
+						"index": ext_tile.get_index()
 					})
 				continue
 			
@@ -335,9 +356,9 @@ func _paint_at(pos: Vector2) -> void:
 				continue
 				
 			replaced_data.append({
-				"node":   ext_tile,
+				"node": ext_tile,
 				"parent": ext_tile.get_parent(),
-				"index":  ext_tile.get_index()
+				"index": ext_tile.get_index()
 			})
 			
 		if not can_paint:
@@ -347,7 +368,8 @@ func _paint_at(pos: Vector2) -> void:
 			var r_node = r["node"]
 			r_node.get_parent().remove_child(r_node)
 		
-		var spr := TileSprite.new(_tile.id, cell.x * _tile.size, cell.y * _tile.size, _tile.depth)
+		var current_depth = _get_current_depth()
+		var spr := TileSprite.new(_tile.id, cell.x * t_size, cell.y * t_size, current_depth)
 		spr.global_position = tile_pos
 		floor_node.add_child(spr)
 		
@@ -362,7 +384,7 @@ func _paint_rect_region(start: Vector2, end: Vector2) -> void:
 		return
 		
 	var rect = _get_snapped_rect(start, end)
-	var step_base = 1.0 if _pixel_mode else float(_tile.size)
+	var step_base = 1.0 if _pixel_mode else float(_get_tile_size())
 	
 	var min_x = _cells[0].x
 	var max_x = _cells[0].x
@@ -436,7 +458,6 @@ func _finish_paint_batch() -> void:
 						if r_node.get_parent() == null:
 							r_parent.add_child(r_node)
 						
-						# БЕЗОПАСНЫЙ ИНДЕКС: гарантируем, что индекс не выйдет за границы
 						var safe_idx = clampi(r["index"], 0, r_parent.get_child_count() - 1)
 						r_parent.move_child(r_node, safe_idx)
 	)
@@ -555,7 +576,7 @@ func _finish_erase_batch() -> void:
 
 func _get_snapped_rect(start: Vector2, end: Vector2) -> Rect2:
 	if _tile == null: return Rect2()
-	var step := 1.0 if _pixel_mode else float(_tile.size)
+	var step := 1.0 if _pixel_mode else float(_get_tile_size())
 	
 	var s = (start / step).floor() * step
 	var e = (end / step).floor() * step
@@ -564,3 +585,17 @@ func _get_snapped_rect(start: Vector2, end: Vector2) -> Rect2:
 	var max_p = Vector2(max(s.x, e.x), max(s.y, e.y)) + Vector2(step, step)
 	
 	return Rect2(min_p, max_p - min_p)
+
+func _get_current_depth(t: HLMTile = null) -> int:
+	var target = t if t != null else _tile
+	if target == null: return 0
+	
+	var tiles_tab = level_tab.tiles as TilesTab
+	if tiles_tab and tiles_tab.tile_prop_check.button_pressed and target != Defs._tiles[-1]:
+		return int(tiles_tab.depth_spin_box.value)
+	
+	return target.depth
+
+func _get_tile_size(t: HLMTile = null) -> int:
+	var d = _get_current_depth(t)
+	return 16 if d > -99 else 8

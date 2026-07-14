@@ -2,9 +2,14 @@ extends PanelContainer
 class_name TilesTab
 
 @onready var tile_selector: OptionButton = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileSelector
-@onready var tile_picker: TilePicker = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel/TilePicker
+@onready var tile_picker: TilePicker = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel/ScrollC/TilePicker
 @onready var c_picker: TilePicker = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner/CPanel/CPicker
 @onready var place_layer_check: CheckButton = $ScrollContainer/MarginFloor/VBox/VBoxFC/PlaceLayerCheck
+
+@onready var tile_extra_check: CheckBox = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/HBoxLabel/ExtraCheck
+@onready var tile_prop_check: CheckBox = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/HBoxLabel/TilePropCheck
+@onready var tile_prop_margin: MarginContainer = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/TilePropMargin
+@onready var depth_spin_box: SpinBox = $ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/TilePropMargin/TilePropHBox/VBoxDepth/SpinBox
 
 @onready var wall_list: ItemList = $ScrollContainer/MarginFloor/VBox/VBoxWalls/WallList
 @onready var entry_b: Button = $ScrollContainer/MarginFloor/VBox/HBoxEB/EntryB
@@ -35,6 +40,11 @@ func _ready() -> void:
 	c_picker.tile_selected.connect(_on_c_picker_used)
 	c_picker.selection_changed.connect(_on_c_picker_used)
 	
+	tile_extra_check.pressed.connect(_on_tile_extra_check_pressed)
+	tile_prop_check.toggled.connect(_on_tile_prop_check_toggled)
+	depth_spin_box.value_changed.connect(_on_depth_spin_box_value_changed)
+	_on_tile_prop_check_toggled(tile_prop_check.button_pressed)
+	
 	wall_list.item_selected.connect(_on_wall_list_selected)
 	entry_b.pressed.connect(_on_entry_b_pressed)
 	door_b.pressed.connect(_on_door_b_pressed)
@@ -53,13 +63,17 @@ func _process(_delta: float) -> void:
 # -------------------------------------------
 
 func _update_tile() -> void:
+	var last_tile_selected = max(0, tile_selector.selected)
 	tile_selector.clear()
 	wall_list.clear()
 	for tile in Defs._tiles:
 		if tile != Defs._tiles[-1]:
+			if !tile_extra_check.button_pressed and tile.is_extra: continue
 			tile_selector.add_item(tile.title)
+	last_tile_selected = min(last_tile_selected, tile_selector.item_count - 1)
 	if Defs._tiles.size() > 0:
-		_on_tile_selector_selected(0)
+		tile_selector.selected = last_tile_selected
+		_on_tile_selector_selected(last_tile_selected)
 		c_picker.set_tile(Defs._tiles[-1])
 	for wall in walls:
 		var orig_tex = Defs.get_sprite_def(wall["sprite_id"]).frames[0]
@@ -121,12 +135,34 @@ func _on_place_layer_toggled(toggled_on: bool) -> void:
 func select_tile_by_id(target_id: int) -> void:
 	for i in range(Defs._tiles.size()):
 		if Defs._tiles[i].id == target_id:
-			tile_selector.select(i)
+			tile_selector.select(min(i, tile_selector.item_count - 1))
 			_on_tile_selector_selected(i)
 			break
 
 func _on_tile_selector_selected(index: int) -> void:
 	tile_picker.set_tile(Defs._tiles[index])
+	depth_spin_box.value = Defs._tiles[index].depth
+
+# -------------------------------------------
+
+func _on_tile_extra_check_pressed() -> void:
+	ToolManager.set_tool(ToolManager.Tool.SELECT)
+	_update_tile()
+
+func _on_tile_prop_check_toggled(toggled_on: bool) -> void:
+	tile_prop_margin.visible = toggled_on
+	_refresh_tile_tools()
+
+func _on_depth_spin_box_value_changed(value: float) -> void:
+	_refresh_tile_tools()
+
+func _refresh_tile_tools() -> void:
+	tile_picker.queue_redraw()
+	c_picker.queue_redraw()
+	
+	if ToolManager.current() == ToolManager._tools[ToolManager.Tool.TILE_PAINT]:
+		var tool = ToolManager.current() as ToolTilePaint
+		tool._create_preview()
 
 # -------------------------------------------
 

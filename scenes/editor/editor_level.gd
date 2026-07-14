@@ -50,15 +50,15 @@ func load_level(info: LevelInfo) -> void:
 	level_info = info
 	_clear_cache()
 	
+	ToolManager.set_tool(ToolManager.Tool.SELECT)
+	
 	if info.exist:
 		await Assets.load_level(Assets._collect_level_paths(level_info.folder_path))
 	
 	_detect_floor_count()
-	
 	if floor_count == 0:
 		var type_name = LevelInfo.Type.keys()[level_info.type]
 		return
-	
 	for i in range(floor_count):
 		_floor_cache.append(_create_floor_node(i))
 	

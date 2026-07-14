@@ -3,6 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://bohcdcd6n6o2o" path="res://resources/themes/panels_light.tres" id="1_1t57n"]
 [ext_resource type="Script" uid="uid://csyolwa2j51x2" path="res://scenes/interface/inspector/tabs/tiles/tiles.gd" id="2_m3ouh"]
 [ext_resource type="Script" uid="uid://c357jphpu4nuv" path="res://scenes/interface/inspector/tabs/tiles/tile_picker.gd" id="3_m3ouh"]
+[ext_resource type="Texture2D" uid="uid://cdmbfsd2kgidb" path="res://resources/textures/icons/Info.svg" id="4_wum4i"]
 [ext_resource type="Texture2D" uid="uid://bo5gca8oosl23" path="res://resources/textures/icons/Entry.png" id="5_lq8sw"]
 [ext_resource type="StyleBox" uid="uid://dbhdjr07j1roa" path="res://resources/themes/line_sub.tres" id="6_oxckc"]
 [ext_resource type="Texture2D" uid="uid://clcs73pptu2gh" path="res://resources/textures/icons/Barrier.png" id="7_wum4i"]
@@ -76,7 +77,12 @@ VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_no8h3")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_exvly")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_nuks6")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lq8sw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxckc"]
+bg_color = Color(0, 0, 0, 0.14901961)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="Tiles" type="PanelContainer" unique_id=530249371]
 anchors_preset = 15
@@ -110,9 +116,17 @@ layout_mode = 2
 [node name="VBoxFloor" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC" unique_id=1307183542]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=97358201]
+[node name="HBoxLabel" type="HBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=1929175094]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/HBoxLabel" unique_id=97358201]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "TILES"
+
+[node name="ExtraCheck" type="CheckBox" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/HBoxLabel" unique_id=640528073]
+layout_mode = 2
+text = "EXTRA_TILES"
 
 [node name="TileSelector" type="OptionButton" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=1280972320]
 layout_mode = 2
@@ -120,16 +134,66 @@ layout_mode = 2
 [node name="TilePanel" type="PanelContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=1313426032]
 layout_mode = 2
 
-[node name="BGGrad" type="ColorRect" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel" unique_id=527351099]
-visible = false
-material = SubResource("ShaderMaterial_lq8sw")
+[node name="ScrollC" type="ScrollContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel" unique_id=1368424421]
 layout_mode = 2
-mouse_filter = 1
+theme_override_constants/scrollbar_h_separation = 10
+theme_override_constants/scrollbar_v_separation = 10
+vertical_scroll_mode = 0
 
-[node name="TilePicker" type="Control" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel" unique_id=439812917]
+[node name="TilePicker" type="Control" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TilePanel/ScrollC" unique_id=439812917]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("3_m3ouh")
 zoom = 1.5
+
+[node name="TileProp" type="PanelContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor" unique_id=1674149875]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oxckc")
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp" unique_id=224797548]
+layout_mode = 2
+
+[node name="HBoxLabel" type="HBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox" unique_id=495075486]
+layout_mode = 2
+
+[node name="TilePropCheck" type="CheckBox" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/HBoxLabel" unique_id=1657885414]
+layout_mode = 2
+text = "TILE_PROP"
+
+[node name="InfoTLS" type="Button" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/HBoxLabel" unique_id=917205717]
+custom_minimum_size = Vector2(22, 16)
+layout_mode = 2
+tooltip_text = "INFO_TLS"
+disabled = true
+icon = ExtResource("4_wum4i")
+flat = true
+expand_icon = true
+
+[node name="TilePropMargin" type="MarginContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox" unique_id=410581863]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TilePropHBox" type="HBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/TilePropMargin" unique_id=602948822]
+layout_mode = 2
+
+[node name="VBoxDepth" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/TilePropMargin/TilePropHBox" unique_id=699172518]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/TilePropMargin/TilePropHBox/VBoxDepth" unique_id=606631258]
+layout_mode = 2
+text = "TILE_DEPTH"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxFloor/TileProp/VBox/TilePropMargin/TilePropHBox/VBoxDepth" unique_id=1235056429]
+layout_mode = 2
+max_value = 1000.0
+value = 1000.0
+rounded = true
+allow_greater = true
+allow_lesser = true
 
 [node name="VBoxCorner" type="VBoxContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC" unique_id=1200755109]
 layout_mode = 2
@@ -140,12 +204,6 @@ text = "CORNERS"
 
 [node name="CPanel" type="PanelContainer" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner" unique_id=318428897]
 layout_mode = 2
-
-[node name="BGGrad" type="ColorRect" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner/CPanel" unique_id=1081403951]
-visible = false
-material = SubResource("ShaderMaterial_lq8sw")
-layout_mode = 2
-mouse_filter = 1
 
 [node name="CPicker" type="Control" parent="ScrollContainer/MarginFloor/VBox/VBoxFC/VBoxCorner/CPanel" unique_id=1529304176]
 layout_mode = 2

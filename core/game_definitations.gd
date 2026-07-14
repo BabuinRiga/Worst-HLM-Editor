@@ -177,7 +177,7 @@ func _load_tiles_tsv() -> void:
 		tile.name = row[1]
 		tile.id = int(row[2])
 		tile.depth = int(row[3])
-		tile.size = int(row[4])
+		tile.is_extra = bool(int(row[4]))
 		_tiles.append(tile)
 		idx += 1
 		var now := Time.get_ticks_msec()
@@ -240,32 +240,10 @@ func _build_tiles() -> void:
 	
 	for idx in range(total):
 		var tile: HLMTile = _tiles[idx]
-		tile.tilemap    = null
-		tile.tiles      = {}
-		tile.view_tiles = {}
+		tile.tilemap = null
 		var frames := Assets.get_sprite(tile.name)
 		if not frames.is_empty():
 			tile.tilemap = frames[0]
-			var img := frames[0].get_image()
-			var w := img.get_width()
-			var h := img.get_height()
-			var s16 := 16 if tile.size != 8 else 8
-			
-			for x in range(0, w, s16):
-				for y in range(0, h, s16):
-					var key := "%d %d" % [x, y]
-					tile.tiles[key] = ImageTexture.create_from_image(
-						img.get_region(Rect2i(x, y, s16, s16)))
-			
-			if tile.size != 8 and tile.size != 16:
-				for x in range(0, w, tile.size):
-					for y in range(0, h, tile.size):
-						var key := "%d %d" % [x, y]
-						tile.view_tiles[key] = ImageTexture.create_from_image(
-							img.get_region(Rect2i(x, y, tile.size, tile.size)))
-			else:
-				tile.view_tiles = tile.tiles
-		
 		var now := Time.get_ticks_msec()
 		if now - last_tick >= 50:
 			AppEvents.load_progress.emit(idx + 1, total, load_name)

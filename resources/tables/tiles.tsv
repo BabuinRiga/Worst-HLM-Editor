@@ -1,20 +1,36 @@
-Title	Name	ID	Depth	Size
-Floor	tlFloor	2	1001	16
-Rugs	tlRugs	6	1001	16
-Tile	tlTile	7	1001	16
-Bathroom	tlBathroom	5	1001	16
-Stairs	tlStairs	8	1001	16
-Big Tiles	tlBigTile	63	1001	16
-Grunge	tlGrunge	44	1001	16
-Asphalt	tlAsphalt	3	1001	16
-Train	tlTrain	47	1001	16
-Outdoor	tlSand	17	1001	16
-Dirt Evening	tlDirtEvening	20	1001	16
-Cave Dirt	tlDirtCave	61	1001	16
-Cave	tlCave	60	1000	16
-Litter	tlDirtBlood	4	1000	16
-Edges	tlEdges	9	1000	16
-Isolation	tlIsolation	64	1000	16
-Roof Top	tlRoofTop	58	1001	16
-Sand Bunker	tlSandBunker	45	1000	16
-Corners	tlCorners	10	-99	8
+Title	Name	ID	Depth	Is Extra
+Floor	tlFloor	2	1001	0
+Rugs	tlRugs	6	1001	0
+Tile	tlTile	7	1001	0
+Bathroom	tlBathroom	5	1001	0
+Stairs	tlStairs	8	1001	0
+Big Tiles	tlBigTile	63	1001	0
+Grunge	tlGrunge	44	1001	0
+Asphalt	tlAsphalt	3	1001	0
+Train	tlTrain	47	1001	0
+Outdoor	tlSand	17	1001	0
+Dirt Day	tlDirtDay	18	1001	0
+Dirt Evening	tlDirtEvening	20	1001	0
+Dirt Night	tlDirtNight	21	1001	0
+Dirt Cave	tlDirtCave	61	1001	0
+Concrete	tlConcrete	46	1001	0
+Debris	tlDebris	55	1000	0
+Cave	tlCave	60	1000	0
+Litter	tlDirtBlood	4	1000	0
+Edges	tlEdges	9	1000	0
+Isolation	tlIsolation	64	1000	0
+Roof Top	tlRoofTop	58	1001	0
+Sand Bunker	tlSandBunker	45	1000	0
++ Background 67	background67	67	1001	1
++ Beach Road	bgBeachRoad	50	1001	1
++ Beach Road Dark	bgBeachRoadDark	53	1001	1
++ Dark Road	bgDarkRoad	52	1001	1
++ Broken Road	bgBrokenRoad	51	1001	1
++ Train 1	bgTrain1	48	1001	1
++ Train 2	bgTrain2	49	1001	1
++ Background 19	background19	19	1001	1
++ Skyline 1	bgSkyline1	12	1001	1
++ Skyline 2	bgSkyline2	14	1001	1
++ Broken City	bgBrokenCity	65	1001	1
++ Background 0	background0	68	1001	1
+Corners	tlCorners	10	-99	0

@@ -422,11 +422,11 @@ func save_floor(base_path: String, level_info: LevelInfo) -> void:
 		else:
 			general_objects.append(child)
 	
-	walls_list.sort_custom(func(a: WallSprite, b: WallSprite) -> bool:
-		if not is_equal_approx(a.global_position.y, b.global_position.y):
-			return a.global_position.y < b.global_position.y
-		return a.global_position.x < b.global_position.x
-	)
+	#walls_list.sort_custom(func(a: WallSprite, b: WallSprite) -> bool:
+		#if not is_equal_approx(a.global_position.y, b.global_position.y):
+			#return a.global_position.y < b.global_position.y
+		#return a.global_position.x < b.global_position.x
+	#)
 	
 	var fmt = func(v: float) -> String:
 		return str(int(v)) if is_equal_approx(fmod(v, 1.0), 0.0) else str(v)

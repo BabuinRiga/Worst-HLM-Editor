@@ -4,6 +4,8 @@ extends Control
 signal tile_selected(tile: HLMTile, tx: int, ty: int)
 signal selection_changed(tile: HLMTile, cells: Array[Vector2i])
 
+@onready var level_tab = get_tree().get_first_node_in_group("LevelTab") as LevelTab
+
 @export var zoom: float = 2.0:
 	set(value):
 		zoom = max(0.1, value)
@@ -86,7 +88,8 @@ func _gui_input(event: InputEvent) -> void:
 				
 				if _drag_start == tc:
 					_toggle_cell(tc)
-					tile_selected.emit(_tile, tc.x * _tile.size, tc.y * _tile.size)
+					var t_size = _get_tile_size()
+					tile_selected.emit(_tile, tc.x * t_size, tc.y * t_size)
 				else:
 					_select_rect(_drag_start, tc, event.ctrl_pressed or event.shift_pressed)
 					selection_changed.emit(_tile, _selection.duplicate())
@@ -120,8 +123,8 @@ func _px_to_tile(pos: Vector2) -> Vector2i:
 	var img_size := _tile.tilemap.get_size() * zoom
 	if pos.x < 0 or pos.y < 0 or pos.x >= img_size.x or pos.y >= img_size.y:
 		return Vector2i(-1, -1)
-		
-	var s := _tile.size * zoom
+	
+	var s := _get_tile_size() * zoom
 	var tx := int(pos.x / s)
 	var ty := int(pos.y / s)
 	return Vector2i(tx, ty)
@@ -129,7 +132,7 @@ func _px_to_tile(pos: Vector2) -> Vector2i:
 func _clamp_tc(pos: Vector2) -> Vector2i:
 	if _tile == null or _tile.tilemap == null:
 		return Vector2i(-1, -1)
-	var s := _tile.size * zoom
+	var s := _get_tile_size() * zoom
 	var max_x := int((_tile.tilemap.get_width() * zoom - 1) / s)
 	var max_y := int((_tile.tilemap.get_height() * zoom - 1) / s)
 	var tx := clampi(int(pos.x / s), 0, max_x)
@@ -139,7 +142,7 @@ func _clamp_tc(pos: Vector2) -> Vector2i:
 func _tile_to_rect(tc: Vector2i) -> Rect2:
 	if _tile == null:
 		return Rect2()
-	var s := _tile.size
+	var s := _get_tile_size()
 	return Rect2(Vector2(tc) * s * zoom, Vector2(s, s) * zoom)
 
 func _toggle_cell(tc: Vector2i) -> void:
@@ -178,8 +181,23 @@ func _get_drag_rect() -> Rect2:
 	var current_drag_end = _clamp_tc(get_local_mouse_position())
 	var normalized_tiles = _get_normalized_tile_rect(_drag_start, current_drag_end)
 	
-	var s := _tile.size * zoom
+	var s := _get_tile_size() * zoom
 	var visual_pos = Vector2(normalized_tiles.position) * s
 	var visual_size = Vector2(normalized_tiles.size) * s
 	
 	return Rect2(visual_pos, visual_size)
+
+# -------------------------------------------------------------
+
+func _get_current_depth(t: HLMTile = null) -> int:
+	var target = t if t != null else _tile
+	if target == null: return 0
+	
+	if level_tab and level_tab.tiles.tile_prop_check.button_pressed and target != Defs._tiles[-1]:
+		return int(level_tab.tiles.depth_spin_box.value)
+	
+	return target.depth
+
+func _get_tile_size(t: HLMTile = null) -> int:
+	var d = _get_current_depth(t)
+	return 16 if d > -99 else 8
